@@ -7,15 +7,29 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
+import { CreateQuestionComponent } from './components/createquestion/createquestion.component';
+import { CreateGameComponent } from './components/creategame/creategame.component';
+import { CreateAnswerComponent } from './components/createanswer/createanswer.component';
+import { GameListComponent } from './components/gamelist/gamelist.component';
+import { GameTableComponent } from './components/gamelist/gametable/gametable.component';
+import { GameRowComponent } from './components/gamelist/gametable/gamerow/gamerow.component';
+import { QuestionListComponent } from './components/questionlist/questionlist.component';
+import { QuestionTableComponent } from './components/questionlist/questiontable/questiontable.component';
+import { QuestionRowComponent } from './components/questionlist/questiontable/questionrow/questionrow.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
+        CreateGameComponent,
+        CreateQuestionComponent,
+        CreateAnswerComponent,
+        GameListComponent,
+        GameTableComponent,
+        GameRowComponent,
+        QuestionListComponent,
+        QuestionTableComponent,
+        QuestionRowComponent,
         HomeComponent
     ],
     imports: [
@@ -25,8 +39,11 @@ import { CounterComponent } from './components/counter/counter.component';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'creategame', component: CreateGameComponent },
+            { path: 'createquestion', component: CreateQuestionComponent },
+            { path: 'createanswer', component: CreateAnswerComponent },
+            { path: 'gamelist', component: GameListComponent },
+            { path: 'questionlist', component: QuestionListComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
