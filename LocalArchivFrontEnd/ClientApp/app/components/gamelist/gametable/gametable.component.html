@@ -1,2 +1,6 @@
-
-
+<tr gamerow
+    *ngFor="let myGame of gameList"
+    [game]="myGame"
+    (click)='clicked(myGame)'
+    [class.selected]="isSelected(myGame)">
+</tr>
