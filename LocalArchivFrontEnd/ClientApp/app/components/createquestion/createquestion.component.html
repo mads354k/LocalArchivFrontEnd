@@ -3,7 +3,7 @@
     <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
         <div>
             <label>Description</label><br />
-            <input type="text" placeholder="The question" name="description" ngModel required />
+            <input style="width:500px" type="text" placeholder="The question" name="description" ngModel required />
         </div>
         <div>
             <label>Question Type</label><br />
@@ -18,7 +18,7 @@
         </div>
         <div>
             <label>Hint</label><br />
-            <input type="text" name="hint" ngModel/>
+            <input style="width:400px" type="text" name="hint" ngModel/>
         </div>
         <button type="submit">Submit</button>
     </form>
