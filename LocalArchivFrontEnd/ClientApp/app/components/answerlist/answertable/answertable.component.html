@@ -1,0 +1,6 @@
+<tr answerrow
+    *ngFor="let myAnswer of answerList"
+    [answer]="myAnswer"
+    (click)='clicked(myAnswer)'
+    [class.selected]="isSelected(myAnswer)">
+</tr>

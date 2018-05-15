@@ -16,6 +16,9 @@ import { GameRowComponent } from './components/gamelist/gametable/gamerow/gamero
 import { QuestionListComponent } from './components/questionlist/questionlist.component';
 import { QuestionTableComponent } from './components/questionlist/questiontable/questiontable.component';
 import { QuestionRowComponent } from './components/questionlist/questiontable/questionrow/questionrow.component';
+import { AnswerListComponent } from './components/answerlist/answerlist.component';
+import { AnswerTableComponent } from './components/answerlist/answertable/answertable.component';
+import { AnswerRowComponent } from './components/answerlist/answertable/gamerow/answerrow.component';
 
 @NgModule({
     declarations: [
@@ -30,6 +33,9 @@ import { QuestionRowComponent } from './components/questionlist/questiontable/qu
         QuestionListComponent,
         QuestionTableComponent,
         QuestionRowComponent,
+        AnswerListComponent,
+        AnswerTableComponent,
+        AnswerRowComponent,
         HomeComponent
     ],
     imports: [
@@ -44,6 +50,7 @@ import { QuestionRowComponent } from './components/questionlist/questiontable/qu
             { path: 'createanswer', component: CreateAnswerComponent },
             { path: 'gamelist', component: GameListComponent },
             { path: 'questionlist', component: QuestionListComponent },
+            { path: 'answerlist', component: AnswerListComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
