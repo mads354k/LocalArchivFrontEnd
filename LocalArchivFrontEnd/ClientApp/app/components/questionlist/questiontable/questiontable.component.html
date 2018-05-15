@@ -1,0 +1,6 @@
+<tr questionrow
+    *ngFor="let myQuestion of questionList"
+    [question]="myQuestion"
+    (click)='clicked(myQuestion)'
+    [class.selected]="isSelected(myQuestion)">
+</tr>

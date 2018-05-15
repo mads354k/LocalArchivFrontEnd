@@ -1,2 +1,16 @@
 <h1>Questions</h1>
-
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Question Type</th>
+                <th>Picture</th>
+                <th>Hint</th>
+            </tr>
+        </thead>
+        <tbody questointable [questionList]="questions"
+               (onQuestionSelected)="questionWasSelected($event)"></tbody>
+    </table>
+</div>
