@@ -1,2 +1,21 @@
 <h1>Create Answers</h1>
-
+<div>
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+        <div>
+            <label>Description</label><br />
+            <input type="text" placeholder="Answer" name="description" ngModel required />
+        </div>
+        <div>
+            <label>Answer Type</label><br />
+            <select name="answerType" ngModel="Text">
+                <option>Text</option>
+                <option>Picture</option>
+            </select>
+        </div>
+        <div>
+            <label>Picture</label><br />
+            <input type="file" name="picture" ngModel/>
+        </div>
+        <button type="submit">submit</button>
+    </form>
+</div>

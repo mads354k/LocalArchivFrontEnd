@@ -1,2 +1,25 @@
 <h1>Create Question</h1>
-
+<div>
+    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
+        <div>
+            <label>Description</label><br />
+            <input type="text" placeholder="The question" name="description" ngModel required />
+        </div>
+        <div>
+            <label>Question Type</label><br />
+            <select name="questionType" ngModel="Text" required>
+                <option>Text</option>
+                <option>Picture</option>
+            </select>
+        </div>
+        <div>
+            <label>Picture</label><br />
+            <input type="file" name="picture" ngModel/>
+        </div>
+        <div>
+            <label>Hint</label><br />
+            <input type="text" name="hint" ngModel/>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</div>

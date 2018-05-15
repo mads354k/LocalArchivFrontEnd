@@ -12,7 +12,11 @@ export class QuestionListComponent implements OnInit{
 
     gameWasSelected(question: Question): void {
         console.log('This question was chosen:' + JSON.stringify(question));
-
+        if (localStorage.getItem('ActiveQuestion') != null) {
+            localStorage.removeItem('ActiveQuestion');
+        }
+        localStorage.setItem('ActiveQuestion', question.questionId + '');
+        alert('Question selected');
     }
 
     constructor(http: Http) {
