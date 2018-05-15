@@ -1,2 +1,15 @@
 <h1>Games</h1>
-
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Color</th>
+                <th>Type</th>
+                <th>Customer</th>
+            </tr>
+        </thead>
+        <tbody gametable [gameList]="games"
+               (onGameSelected)="gameWasSelected($event)"></tbody>
+    </table>
+</div>
