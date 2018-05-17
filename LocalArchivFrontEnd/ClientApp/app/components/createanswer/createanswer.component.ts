@@ -16,7 +16,7 @@ export class CreateAnswerComponent implements OnInit{
 
     onSubmit(form: any) {
         var answer = new Answer(0, form.description, form.answerType, form.picture);
-        this.http.post('', answer).subscribe(result => {
+        this.http.post('http://localhost:3000/answers', answer).subscribe(result => {
             alert('Answer created');
         }, error => console.error(error));
     }

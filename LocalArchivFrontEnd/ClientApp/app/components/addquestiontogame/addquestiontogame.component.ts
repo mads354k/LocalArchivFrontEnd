@@ -20,7 +20,7 @@ export class QuestionToGameComponent implements OnInit {
             var gameId: number = Number(localStorage.getItem('ActiveGame'));
             var questionId: number = Number(localStorage.getItem('ActiveQuestion'));
             var gameQuestion = new GameQuestion(0, gameId, questionId);
-            this.http.post('', gameQuestion).subscribe(result => {
+            this.http.post('http://localhost:3000/gamequestions', gameQuestion).subscribe(result => {
                 alert('Question added to game');
             }, error => console.log(error));
         } else {

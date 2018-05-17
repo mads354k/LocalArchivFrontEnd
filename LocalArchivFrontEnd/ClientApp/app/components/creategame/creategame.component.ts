@@ -16,7 +16,7 @@ export class CreateGameComponent implements OnInit{
 
     onSubmit(form: any) {
         var game = new Game(0, form.name, form.date);
-        this.http.post('', game).subscribe(result => {
+        this.http.post('http://localhost:3000/games', game).subscribe(result => {
             var game = result.json() as Game;
             if (localStorage.getItem('ActiveGame') != null) {
                 localStorage.removeItem('ActiveGame');

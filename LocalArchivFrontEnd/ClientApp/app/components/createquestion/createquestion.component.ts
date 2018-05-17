@@ -16,7 +16,7 @@ export class CreateQuestionComponent implements OnInit{
 
     onSubmit(form: any) {
         var question = new Question(0, form.description, form.questionType, form.picture, form.hint);
-        this.http.post('', question).subscribe(result => {
+        this.http.post('http://localhost:3000/questions', question).subscribe(result => {
             var question = result.json() as Question;
             if (localStorage.getItem('ActiveQuestion') != null) {
                 localStorage.removeItem('ActiveQuestion');
