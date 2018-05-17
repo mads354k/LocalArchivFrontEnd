@@ -24,7 +24,7 @@ export class GameListComponent implements OnInit{
     }
 
     ngOnInit() {
-        this.http.get('').subscribe(result => {
+        this.http.get('http://localhost:3000/games').subscribe(result => {
             this.games = result.json() as Game[];
         }, error => console.log(error))
     }

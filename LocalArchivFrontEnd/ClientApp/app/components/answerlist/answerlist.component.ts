@@ -20,7 +20,7 @@ export class AnswerListComponent implements OnInit{
     }
 
     ngOnInit() {
-        this.http.get('').subscribe(result => {
+        this.http.get('http://localhost:3000/answers').subscribe(result => {
             this.answers = result.json() as Answer[];
         }, error => console.log(error))
     }

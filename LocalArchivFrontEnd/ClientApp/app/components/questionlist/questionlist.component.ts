@@ -24,7 +24,7 @@ export class QuestionListComponent implements OnInit{
     }
 
     ngOnInit() {
-        this.http.get('').subscribe(result => {
+        this.http.get('http://localhost:3000/questions').subscribe(result => {
             this.questions = result.json() as Question[];
         }, error => console.log(error))
     }
