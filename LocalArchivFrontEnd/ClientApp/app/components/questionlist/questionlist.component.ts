@@ -10,7 +10,7 @@ export class QuestionListComponent implements OnInit{
     questions: Question[] = [];  // THE MODEL 
     private http: Http;
 
-    gameWasSelected(question: Question): void {
+    questionWasSelected(question: Question): void {
         console.log('This question was chosen:' + JSON.stringify(question));
         if (localStorage.getItem('ActiveQuestion') != null) {
             localStorage.removeItem('ActiveQuestion');
