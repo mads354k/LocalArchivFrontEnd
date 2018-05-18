@@ -4,14 +4,20 @@ import { Question } from '../../question/question.model';
 
 @Component({
     selector: 'createquestion',
-    templateUrl: './createquestion.component.html'
+    templateUrl: './createquestion.component.html',
+    styleUrls: ['./createquestion.component.css']
 })
 export class CreateQuestionComponent implements OnInit{
     private http: Http;
+    questionsCreated: number = 0;
 
     constructor(http: Http) { this.http = http; }
 
     ngOnInit() {
+    }
+
+    cancelCreation() {
+
     }
 
     onSubmit(form: any) {

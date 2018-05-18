@@ -1,0 +1,41 @@
+﻿div.setup {
+    display: grid;
+    grid-gap: 10px 10px;
+    grid-template-columns: 1fr 2fr 5fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
+}
+
+h1.position {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+label.name {
+    text-align: right;
+    align-self: center;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+label.date {
+    text-align: right;
+    align-self: center;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+}
+
+input.name {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+input.date {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+}
+
+button.next {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    width: 50%;
+}

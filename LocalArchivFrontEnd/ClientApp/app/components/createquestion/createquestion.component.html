@@ -1,25 +1,55 @@
-<h1>Create Question</h1>
-<div>
-    <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)">
-        <div>
-            <label>Description</label><br />
-            <input style="width:500px" type="text" placeholder="The question" name="description" ngModel required />
-        </div>
-        <div>
-            <label>Question Type</label><br />
-            <select name="questionType" ngModel="Text" required>
-                <option>Text</option>
-                <option>Picture</option>
-            </select>
-        </div>
-        <div>
-            <label>Picture</label><br />
-            <input type="file" name="picture" ngModel/>
-        </div>
-        <div>
-            <label>Hint</label><br />
-            <input style="width:400px" type="text" name="hint" ngModel/>
-        </div>
-        <button type="submit">Submit</button>
-    </form>
+<div class="bigSetup">
+    <div class="smallSetup" style="grid-column: 1/2; grid-row: 1/2;">
+        <h1 class="position">Lav spørgsmål</h1>
+        <label class="row1">Beskrivelse:</label>
+        <label class="row2">Spørgsmåls type:</label>
+        <label class="row3">Billede:</label>
+        <input class="row1" type="text" placeholder="ex. Hvad er tungest?"/>
+
+        <input class="row3" type="file" />
+    </div>
+    <div class="smallSetup" style="grid-column: 2/3; grid-row: 1/2;">
+        <label class="row1">Spørgsmål lavet:</label>
+        <label class="row2">{{questionsCreated}}</label>
+    </div>
+    <div class="smallSetup" style="grid-column: 1/2; grid-row: 2/3;">
+        <h1 class="position">Mulige svar</h1>
+        <label class="row1">Svar type:</label>
+        <label class="row2">Beskrivelse:</label>
+        <label class="row3">Billede:</label>
+        <label class="row4">Korrekt svar:</label>
+
+        <input class="row2" placeholder="ex. Bly"/>
+        <input class="row3" type="file"/>
+        <input class="row4" type="checkbox" value="false"/>
+    </div>
+    <div class="smallSetup" style="grid-column: 2/3; grid-row: 2/3;">
+        <label class="row2">Beskrivelse:</label>
+        <label class="row3">Billede:</label>
+        <label class="row4">Korrekt svar:</label>
+
+        <input class="row2" placeholder="ex. Jern" />
+        <input class="row3" type="file" />
+        <input class="row4" type="checkbox" value="false" />
+    </div>
+    <div class="smallSetup" style="grid-column: 1/2; grid-row: 3/4;">
+        <label class="row1">Beskrivelse:</label>
+        <label class="row2">Billede:</label>
+        <label class="row3">Korrekt svar:</label>
+
+        <input class="row1" placeholder="ex. Luft" />
+        <input class="row2" type="file" />
+        <input class="row3" type="checkbox" value="false" />
+        <button class="cancel" (click)="cancelCreation()">Fortryd</button>
+    </div>
+    <div class="smallSetup" style="grid-column: 2/3; grid-row: 3/4;">
+        <label class="row1">Beskrivelse:</label>
+        <label class="row2">Billede:</label>
+        <label class="row3">Korrekt svar:</label>
+
+        <input class="row1" placeholder="ex. Træ" />
+        <input class="row2" type="file" />
+        <input class="row3" type="checkbox" value="false" />
+        <button class="addToGame">Tilføj til spil</button>
+    </div>
 </div>

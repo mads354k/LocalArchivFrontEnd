@@ -49,11 +49,9 @@ import { QuestionToGameComponent } from './components/addquestiontogame/addquest
             { path: 'home', component: HomeComponent },
             { path: 'creategame', component: CreateGameComponent },
             { path: 'createquestion', component: CreateQuestionComponent },
-            { path: 'createanswer', component: CreateAnswerComponent },
             { path: 'gamelist', component: GameListComponent },
             { path: 'questionlist', component: QuestionListComponent },
             { path: 'answerlist', component: AnswerListComponent },
-            { path: 'addquestiontogame', component: QuestionToGameComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
