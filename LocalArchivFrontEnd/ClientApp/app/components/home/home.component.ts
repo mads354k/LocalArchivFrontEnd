@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { Game } from '../../game/game.model';
 
@@ -7,7 +7,7 @@ import { Game } from '../../game/game.model';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
     constructor(private http: Http) {}
 
     nextPage() {
@@ -21,11 +21,17 @@ export class HomeComponent {
                     localStorage.removeItem('ActiveGame');
                 }
                 localStorage.setItem('ActiveGame', game.gameId + '');
-                alert('Game created and selected');
             }, error => console.error(error)); 
             window.location.href = 'createquestion';
         }
     }
 
-
+    ngOnInit() {
+        if (localStorage.getItem('SelectedQuestion') != null) {
+            localStorage.removeItem('SelectedQuestion');
+        }
+        if (localStorage.getItem('SelectedGame') != null) {
+            localStorage.removeItem('SelectedGame');
+        }
+    }
 }

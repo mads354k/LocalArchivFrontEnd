@@ -12,7 +12,11 @@ export class QuestionListComponent implements OnInit{
 
     questionWasSelected(question: Question): void {
         console.log('This question was chosen:' + JSON.stringify(question));
-
+        if (localStorage.getItem('SelectedQuestion') != null) {
+            localStorage.removeItem('SelectedQuestion');
+        }
+        localStorage.setItem('SelectedQuestion', question.questionId + '');
+        window.location.href = 'specificanswerlist';
     }
 
     constructor(http: Http) {

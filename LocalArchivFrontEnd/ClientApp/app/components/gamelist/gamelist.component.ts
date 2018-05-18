@@ -12,7 +12,11 @@ export class GameListComponent implements OnInit{
 
     gameWasSelected(game: Game): void {
         console.log('This game was chosen:' + JSON.stringify(game));
-        
+        if (localStorage.getItem('SelectedGame') != null) {
+            localStorage.removeItem('SelectedGame');
+        }
+        localStorage.setItem('SelectedGame', game.gameId + '');
+        window.location.href = '';
     }
 
     constructor(http: Http) {
