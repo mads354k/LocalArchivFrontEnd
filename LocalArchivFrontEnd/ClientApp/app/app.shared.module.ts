@@ -8,8 +8,6 @@ import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { CreateQuestionComponent } from './components/createquestion/createquestion.component';
-import { CreateGameComponent } from './components/creategame/creategame.component';
-import { CreateAnswerComponent } from './components/createanswer/createanswer.component';
 import { GameListComponent } from './components/gamelist/gamelist.component';
 import { GameTableComponent } from './components/gamelist/gametable/gametable.component';
 import { GameRowComponent } from './components/gamelist/gametable/gamerow/gamerow.component';
@@ -19,7 +17,6 @@ import { QuestionRowComponent } from './components/questionlist/questiontable/qu
 import { AnswerListComponent } from './components/answerlist/answerlist.component';
 import { AnswerTableComponent } from './components/answerlist/answertable/answertable.component';
 import { AnswerRowComponent } from './components/answerlist/answertable/answerrow/answerrow.component';
-import { QuestionToGameComponent } from './components/addquestiontogame/addquestiontogame.component';
 import { SpecificAnswerListComponent } from './components/specificanswerlist/specificanswerlist.component';
 import { SpecificQuestionListComponent } from './components/specificquestionlist/specificquestionlist.component';
 import { SpecificQuestionTableComponent } from './components/specificquestionlist/specificquestiontable/specificquestiontable.component';
@@ -29,9 +26,7 @@ import { SpecificQuestionRowComponent } from './components/specificquestionlist/
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CreateGameComponent,
         CreateQuestionComponent,
-        CreateAnswerComponent,
         GameListComponent,
         GameTableComponent,
         GameRowComponent,
@@ -41,7 +36,6 @@ import { SpecificQuestionRowComponent } from './components/specificquestionlist/
         AnswerListComponent,
         AnswerTableComponent,
         AnswerRowComponent,
-        QuestionToGameComponent,
         SpecificAnswerListComponent,
         SpecificQuestionListComponent,
         SpecificQuestionTableComponent,
