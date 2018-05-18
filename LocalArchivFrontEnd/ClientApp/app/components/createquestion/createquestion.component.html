@@ -4,9 +4,11 @@
         <label class="row1">Beskrivelse:</label>
         <label class="row2">Spørgsmåls type:</label>
         <label class="row3">Billede:</label>
-        <input class="row1" type="text" placeholder="ex. Hvad er tungest?"/>
-
-        <input class="row3" type="file" />
+        <label class="row4">Hint:</label>
+        <input class="row1" id="questionB" type="text" placeholder="ex. Hvad er tungest?"/>
+        
+        <input class="row3" id="questionP" type="file" />
+        <input class="row4" id="questionH" type="text" />
     </div>
     <div class="smallSetup" style="grid-column: 2/3; grid-row: 1/2;">
         <label class="row1">Spørgsmål lavet:</label>
@@ -18,38 +20,35 @@
         <label class="row2">Beskrivelse:</label>
         <label class="row3">Billede:</label>
         <label class="row4">Korrekt svar:</label>
-
-        <input class="row2" placeholder="ex. Bly"/>
-        <input class="row3" type="file"/>
-        <input class="row4" type="checkbox" value="false"/>
+        <input class="row2" id="answerB1" placeholder="ex. Bly"/>
+        <input class="row3" id="answerP1" type="file"/>
+        <input class="row4" id="answerC1" type="checkbox" value="false"/>
     </div>
     <div class="smallSetup" style="grid-column: 2/3; grid-row: 2/3;">
         <label class="row2">Beskrivelse:</label>
         <label class="row3">Billede:</label>
         <label class="row4">Korrekt svar:</label>
 
-        <input class="row2" placeholder="ex. Jern" />
-        <input class="row3" type="file" />
-        <input class="row4" type="checkbox" value="false" />
+        <input class="row2" id="answerB2" placeholder="ex. Jern" />
+        <input class="row3" id="answerP2" type="file" />
+        <input class="row4" id="answerC2" type="checkbox" value="false" />
     </div>
     <div class="smallSetup" style="grid-column: 1/2; grid-row: 3/4;">
         <label class="row1">Beskrivelse:</label>
         <label class="row2">Billede:</label>
         <label class="row3">Korrekt svar:</label>
-
-        <input class="row1" placeholder="ex. Luft" />
-        <input class="row2" type="file" />
-        <input class="row3" type="checkbox" value="false" />
+        <input class="row1" id="answerB3" placeholder="ex. Luft" />
+        <input class="row2" id="answerP3" type="file" />
+        <input class="row3" id="answerC3" type="checkbox" value="false" />
         <button class="cancel" (click)="cancelCreation()">Fortryd</button>
     </div>
     <div class="smallSetup" style="grid-column: 2/3; grid-row: 3/4;">
         <label class="row1">Beskrivelse:</label>
         <label class="row2">Billede:</label>
         <label class="row3">Korrekt svar:</label>
-
-        <input class="row1" placeholder="ex. Træ" />
-        <input class="row2" type="file" />
-        <input class="row3" type="checkbox" value="false" />
-        <button class="addToGame">Tilføj til spil</button>
+        <input class="row1" id="answerB4" placeholder="ex. Træ" />
+        <input class="row2" id="answerP4" type="file" />
+        <input class="row3" id="answerC4" type="checkbox" value="false" />
+        <button class="addToGame" (click)="addToGame()">Tilføj til spil</button>
     </div>
 </div>
