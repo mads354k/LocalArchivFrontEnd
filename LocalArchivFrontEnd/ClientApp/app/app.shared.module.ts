@@ -21,8 +21,9 @@ import { AnswerTableComponent } from './components/answerlist/answertable/answer
 import { AnswerRowComponent } from './components/answerlist/answertable/answerrow/answerrow.component';
 import { QuestionToGameComponent } from './components/addquestiontogame/addquestiontogame.component';
 import { SpecificAnswerListComponent } from './components/specificanswerlist/specificanswerlist.component';
-import { SpecificAnswerTableComponent } from './components/specificanswerlist/specificanswertable/specificanswertable.component';
-import { SpecificAnswerRowComponent } from './components/specificanswerlist//specificanswertable/specificanswerrow/specificanswerrow.component';
+import { SpecificQuestionListComponent } from './components/specificquestionlist/specificquestionlist.component';
+import { SpecificQuestionTableComponent } from './components/specificquestionlist/specificquestiontable/specificquestiontable.component';
+import { SpecificQuestionRowComponent } from './components/specificquestionlist/specificquestiontable/specificquestionrow/specificquestionrow.component';
 
 @NgModule({
     declarations: [
@@ -42,8 +43,9 @@ import { SpecificAnswerRowComponent } from './components/specificanswerlist//spe
         AnswerRowComponent,
         QuestionToGameComponent,
         SpecificAnswerListComponent,
-        SpecificAnswerTableComponent,
-        SpecificAnswerRowComponent,
+        SpecificQuestionListComponent,
+        SpecificQuestionTableComponent,
+        SpecificQuestionRowComponent,
         HomeComponent
     ],
     imports: [
@@ -58,6 +60,7 @@ import { SpecificAnswerRowComponent } from './components/specificanswerlist//spe
             { path: 'questionlist', component: QuestionListComponent },
             { path: 'answerlist', component: AnswerListComponent },
             { path: 'specificanswerlist', component: SpecificAnswerListComponent },
+            { path: 'specificquestionlist', component: SpecificQuestionListComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

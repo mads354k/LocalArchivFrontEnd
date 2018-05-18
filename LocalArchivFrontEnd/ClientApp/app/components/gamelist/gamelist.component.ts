@@ -16,7 +16,7 @@ export class GameListComponent implements OnInit{
             localStorage.removeItem('SelectedGame');
         }
         localStorage.setItem('SelectedGame', game.gameId + '');
-        window.location.href = '';
+        window.location.href = 'specificquestionlist';
     }
 
     constructor(http: Http) {
