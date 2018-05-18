@@ -18,8 +18,11 @@ import { QuestionTableComponent } from './components/questionlist/questiontable/
 import { QuestionRowComponent } from './components/questionlist/questiontable/questionrow/questionrow.component';
 import { AnswerListComponent } from './components/answerlist/answerlist.component';
 import { AnswerTableComponent } from './components/answerlist/answertable/answertable.component';
-import { AnswerRowComponent } from './components/answerlist/answertable/gamerow/answerrow.component';
+import { AnswerRowComponent } from './components/answerlist/answertable/answerrow/answerrow.component';
 import { QuestionToGameComponent } from './components/addquestiontogame/addquestiontogame.component';
+import { SpecificAnswerListComponent } from './components/specificanswerlist/specificanswerlist.component';
+import { SpecificAnswerTableComponent } from './components/specificanswerlist/specificanswertable/specificanswertable.component';
+import { SpecificAnswerRowComponent } from './components/specificanswerlist//specificanswertable/specificanswerrow/specificanswerrow.component';
 
 @NgModule({
     declarations: [
@@ -38,6 +41,9 @@ import { QuestionToGameComponent } from './components/addquestiontogame/addquest
         AnswerTableComponent,
         AnswerRowComponent,
         QuestionToGameComponent,
+        SpecificAnswerListComponent,
+        SpecificAnswerTableComponent,
+        SpecificAnswerRowComponent,
         HomeComponent
     ],
     imports: [
@@ -47,11 +53,11 @@ import { QuestionToGameComponent } from './components/addquestiontogame/addquest
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'creategame', component: CreateGameComponent },
             { path: 'createquestion', component: CreateQuestionComponent },
             { path: 'gamelist', component: GameListComponent },
             { path: 'questionlist', component: QuestionListComponent },
             { path: 'answerlist', component: AnswerListComponent },
+            { path: 'specificanswerlist', component: SpecificAnswerListComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
