@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit{
                     localStorage.removeItem('ActiveGame');
                 }
                 localStorage.setItem('ActiveGame', game.gameId + '');
+                window.location.href = 'createquestion';
             }, error => console.error(error)); 
-            window.location.href = 'createquestion';
         }
     }
 

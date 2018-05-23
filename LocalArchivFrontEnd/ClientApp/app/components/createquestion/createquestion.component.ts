@@ -59,11 +59,12 @@ export class CreateQuestionComponent implements OnInit{
     }
 
     ngOnInit() {
+        var gameId: number = Number(localStorage.getItem('ActiveGame'));
         this.http.get('http://localhost:3000/gamequestions').subscribe(result => {
             var gameQuestions = result.json() as GameQuestion[];
             this.questionsCreated = 0;
             for (let gameQuestion of gameQuestions) {
-                if (gameQuestion.gameId == Number(localStorage.getItem('ActiveGame'))) {
+                if (gameQuestion.gameId == gameId) {
                     this.questionsCreated += 1;
                 }
             }
