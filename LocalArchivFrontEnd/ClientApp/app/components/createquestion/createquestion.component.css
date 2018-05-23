@@ -8,13 +8,14 @@
 div.smallSetup {
     display: grid;
     grid-gap: 10px 10px;
-    grid-template-columns: 30% 1fr;
+    grid-template-columns: 40% 50%;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
 h1.position{
     grid-column: 2/3;
     grid-row: 1/2;
+    font-size: 24px;
 }
 
 label.row1 {

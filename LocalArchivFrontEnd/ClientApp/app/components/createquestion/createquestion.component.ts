@@ -74,7 +74,43 @@ export class CreateQuestionComponent implements OnInit{
     }
 
     cancelCreation() {
-        window.location.href = 'home';
+        this.http.get('http://localhost:3000/gamequestions').subscribe(result => {
+            var gameQuestionList = result.json() as GameQuestion[];
+            var questionsToGame: GameQuestion[] = [];
+            for (let gameQuestion of gameQuestionList) {
+                if (gameQuestion.gameId == Number(localStorage.getItem('ActiveGame'))) {
+                    questionsToGame.push(gameQuestion);
+                    this.http.delete('http://localhost:3000/gamequestions/' + gameQuestion.id).subscribe(result => {
+
+                    }, error => console.log(error));
+                }
+            }
+            this.http.get('http://localhost:3000/roundquestions').subscribe(result => {
+                var roundQuestionList = result.json() as RoundQuestion[];
+                var answerToQuestion: RoundQuestion[] = [];
+                for (let roundQuestion of roundQuestionList) {
+                    for (let qtg of questionsToGame) {
+                        if (roundQuestion.questionId == qtg.questionId) {
+                            answerToQuestion.push(roundQuestion);
+                            this.http.delete('http://localhost:3000/roundquestions/' + roundQuestion.id).subscribe(result => {
+
+                            }, error => console.log(error));
+                        }
+                    }
+                }
+                for (let atq of answerToQuestion) {
+                    this.http.delete('http://localhost:3000/answers/' + atq.answerId).subscribe(result => {
+
+                    }, error => console.log(error));
+                }
+                for (let qtg of questionsToGame) {
+                    this.http.delete('http://localhost:3000/questions/' + qtg.questionId).subscribe(result => {
+
+                    }, error => console.log(error));
+                }
+                window.location.href = 'home';
+            }, error => console.log(error));
+        }, error => console.log(error));
     }
 
     addToGame() {
@@ -118,7 +154,7 @@ export class CreateQuestionComponent implements OnInit{
 
                 var gameQuestion = new GameQuestion(0, Number(localStorage.getItem('ActiveGame')), Number(localStorage.getItem('ActiveQuestion')));
                 this.http.post('http://localhost:3000/gamequestions', gameQuestion).subscribe(result => {
-                    
+                    window.location.href = 'createquestion';
                 }, error => console.log(error));
             }, error => console.error(error));
         }    
