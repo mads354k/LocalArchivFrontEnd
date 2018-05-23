@@ -6,7 +6,10 @@
         <label class="row3">Billede:</label>
         <label class="row4">Hint:</label>
         <input class="row1" id="questionB" type="text" placeholder="ex. Hvad er tungest?"/>
-        
+        <div style="grid-column: 2/3; grid-row:3/4;">
+            <button class="icon" id="questionT1" style="background-color:lawngreen" (click)="questionTypeText()"><span class="glyphicon glyphicon-text-background"></span></button>
+            <button class="icon" id="questionT2" (click)="questionTypePicture()"><span class="glyphicon glyphicon-picture"></span></button>
+        </div>
         <input class="row3" id="questionP" type="file" />
         <input class="row4" id="questionH" type="text" />
     </div>
@@ -14,26 +17,29 @@
         <label class="row1">Spørgsmål lavet:</label>
         <label class="row2">{{questionsCreated}}</label>
     </div>
-    <div class="smallSetup" style="grid-column: 1/2; grid-row: 2/3;">
+    <div class="smallSetup" style="grid-column: 1/2; grid-row: 2/3; border-top:solid 1.5px black; margin-top:10px;">
         <h1 class="position">Mulige svar</h1>
         <label class="row1">Svar type:</label>
         <label class="row2">Beskrivelse:</label>
         <label class="row3">Billede:</label>
         <label class="row4">Korrekt svar:</label>
-        <input class="row2" id="answerB1" placeholder="ex. Bly"/>
-        <input class="row3" id="answerP1" type="file"/>
-        <input class="row4" id="answerC1" type="checkbox" value="false"/>
+        <div style="grid-column: 2/3; grid-row:2/3;">
+            <button class="icon" id="answerT1" style="background-color:lawngreen" (click)="answerTypeText()"><span class="glyphicon glyphicon-text-background"></span></button>
+            <button class="icon" id="answerT2" (click)="answerTypePicture()"><span class="glyphicon glyphicon-picture"></span></button>
+        </div>
+        <input class="row2" id="answerB1" placeholder="ex. Bly" />
+        <input class="row3" id="answerP1" type="file" />
+        <input class="row4" id="answerC1" type="checkbox" value="false" />
     </div>
-    <div class="smallSetup" style="grid-column: 2/3; grid-row: 2/3;">
+    <div class="smallSetup" style="grid-column: 2/3; grid-row: 2/3; border-top:solid 1.5px black; margin-top:10px;">
         <label class="row2">Beskrivelse:</label>
         <label class="row3">Billede:</label>
         <label class="row4">Korrekt svar:</label>
-
         <input class="row2" id="answerB2" placeholder="ex. Jern" />
         <input class="row3" id="answerP2" type="file" />
         <input class="row4" id="answerC2" type="checkbox" value="false" />
     </div>
-    <div class="smallSetup" style="grid-column: 1/2; grid-row: 3/4;">
+    <div class="smallSetup" style="grid-column: 1/2; grid-row: 3/4; border-top:dashed 1.5px black; margin-top:20px;">
         <label class="row1">Beskrivelse:</label>
         <label class="row2">Billede:</label>
         <label class="row3">Korrekt svar:</label>
@@ -42,7 +48,7 @@
         <input class="row3" id="answerC3" type="checkbox" value="false" />
         <button class="cancel" (click)="cancelCreation()">Fortryd</button>
     </div>
-    <div class="smallSetup" style="grid-column: 2/3; grid-row: 3/4;">
+    <div class="smallSetup" style="grid-column: 2/3; grid-row: 3/4; border-top:dashed 1.5px black; margin-top:20px;">
         <label class="row1">Beskrivelse:</label>
         <label class="row2">Billede:</label>
         <label class="row3">Korrekt svar:</label>

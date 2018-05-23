@@ -13,8 +13,50 @@ import { RoundQuestion } from '../../roundquestion/roundquestion.model';
 export class CreateQuestionComponent implements OnInit{
     private http: Http;
     questionsCreated: number;
+    questionType: string;
+    answerType: string;
 
     constructor(http: Http) { this.http = http; }
+
+    questionTypePicture() {
+        var button1 = document.getElementById('questionT1');
+        var button2 = document.getElementById('questionT2');
+        if (button1 != null && button2 != null) {
+            this.questionType = 'Picture';
+            button1.setAttribute('style', 'background-color:dimgrey;');
+            button2.setAttribute('style', 'background-color:lawngreen;');
+        }
+    }
+
+    questionTypeText() {
+        var button1 = document.getElementById('questionT1');
+        var button2 = document.getElementById('questionT2');
+        if (button1 != null && button2 != null) {
+            this.questionType = 'Text';
+            button2.setAttribute('style', 'background-color:dimgrey;');
+            button1.setAttribute('style', 'background-color:lawngreen;');
+        }
+    }
+
+    answerTypePicture() {
+        var button1 = document.getElementById('answerT1');
+        var button2 = document.getElementById('answerT2');
+        if (button1 != null && button2 != null) {
+            this.answerType = 'Picture';
+            button1.setAttribute('style', 'background-color:dimgrey;');
+            button2.setAttribute('style', 'background-color:lawngreen;');
+        }
+    }
+
+    answerTypeText() {
+        var button1 = document.getElementById('answerT1');
+        var button2 = document.getElementById('answerT2');
+        if (button1 != null && button2 != null) {
+            this.answerType = 'Text';
+            button2.setAttribute('style', 'background-color:dimgrey;');
+            button1.setAttribute('style', 'background-color:lawngreen;');
+        }
+    }
 
     ngOnInit() {
         this.http.get('http://localhost:3000/gamequestions').subscribe(result => {
@@ -26,6 +68,8 @@ export class CreateQuestionComponent implements OnInit{
                 }
             }
         }, error => console.log(error));
+        this.questionType = 'Text';
+        this.answerType = 'Text';
     }
 
     cancelCreation() {
@@ -37,9 +81,9 @@ export class CreateQuestionComponent implements OnInit{
         var picture = <HTMLInputElement>document.getElementById('questionP');
         var hint = <HTMLInputElement>document.getElementById('questionH');
 
-        if (description != null && picture != null && hint != null) {
+        if (description != null && picture.files != null && hint != null) {
             var file = picture.files[0];
-            var question = new Question(0, description.value, 'Text', file, hint.value);
+            var question = new Question(0, description.value, this.questionType, file, hint.value);
             this.http.post('http://localhost:3000/questions', question).subscribe(result => {
                 var question = result.json() as Question;
                 if (localStorage.getItem('ActiveQuestion') != null) {
@@ -47,7 +91,6 @@ export class CreateQuestionComponent implements OnInit{
                 }
                 localStorage.setItem('ActiveQuestion', question.questionId + '');
 
-                // var inputT = <HTMLInputElement>document.getElementById('answerT');
                 var inputB1 = <HTMLInputElement>document.getElementById('answerB1');
                 var inputP1 = <HTMLInputElement>document.getElementById('answerP1');
                 var inputC1 = <HTMLInputElement>document.getElementById('answerC1');
@@ -77,13 +120,13 @@ export class CreateQuestionComponent implements OnInit{
                     
                 }, error => console.log(error));
             }, error => console.error(error));
-        }      
+        }    
     }
 
     createAndAddAnswer(inputB: HTMLInputElement, inputP: HTMLInputElement, inputC: HTMLInputElement) {
-        if (inputB != null && inputC != null && inputP != null) {
+        if (inputB != null && inputC != null && inputP.files != null) {
             var file = inputP.files[0];
-            var answer = new Answer(0, inputB.value, 'Text', file);
+            var answer = new Answer(0, inputB.value, this.answerType, file);
             this.http.post('http://localhost:3000/answers', answer).subscribe(result => {
                 var answer = result.json() as Answer;
                 var roundQuestion = new RoundQuestion(0, Number(localStorage.getItem('ActiveQuestion')), answer.answerId, Boolean(inputC.value));
