@@ -25,7 +25,7 @@ export class AnswerRowComponent implements OnInit{
                 }
             }
             this.http.delete('http://localhost:3000/answers/' + this.answer.answerId).subscribe(result => {
-                window.location.href = 'answerlist';
+                window.location.reload();
             }, error => console.log(error));
         }, error => console.log(error));
     }

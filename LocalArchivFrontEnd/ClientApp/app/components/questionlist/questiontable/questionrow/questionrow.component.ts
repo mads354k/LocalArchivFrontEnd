@@ -16,6 +16,7 @@ export class QuestionRowComponent implements OnInit{
     }
 
     removeRecord() {
+        localStorage.setItem('SelectedQuestion', 'button');
         this.http.get('http://localhost:3000/gamequestions').subscribe(result => {
             var gottenList = result.json() as GameQuestion[];
             for (let item of gottenList) {
@@ -35,7 +36,7 @@ export class QuestionRowComponent implements OnInit{
                     }
                 }
                 this.http.delete('http://localhost:3000/questions/' + this.question.questionId).subscribe(result => {
-                    window.location.href = 'questionlist';
+                    window.location.reload();
                 }, error => console.log(error));
             }, error => console.log(error));
         }, error => console.log(error));

@@ -154,7 +154,7 @@ export class CreateQuestionComponent implements OnInit{
 
                 var gameQuestion = new GameQuestion(0, Number(localStorage.getItem('ActiveGame')), Number(localStorage.getItem('ActiveQuestion')));
                 this.http.post('http://localhost:3000/gamequestions', gameQuestion).subscribe(result => {
-                    window.location.href = 'createquestion';
+                    window.location.reload();
                 }, error => console.log(error));
             }, error => console.error(error));
         }    
