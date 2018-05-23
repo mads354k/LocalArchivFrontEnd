@@ -25,10 +25,11 @@ export class SpecificQuestionListComponent implements OnInit{
     }
 
     ngOnInit() {
+        var gameId: number = Number(localStorage.getItem('SelectedGame'));
         this.http.get('http://localhost:3000/gamequestions').subscribe(result => {
             var gameQuestions = result.json() as GameQuestion[];
             for (let gameQuestion of gameQuestions) {
-                if (Number(localStorage.getItem('SelectedGame')) == gameQuestion.gameId) {
+                if (gameId == gameQuestion.gameId) {
                     this.getSpecificQuestion(gameQuestion.questionId);
                 }
             }
