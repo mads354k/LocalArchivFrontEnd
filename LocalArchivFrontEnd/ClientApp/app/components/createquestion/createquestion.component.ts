@@ -135,29 +135,29 @@ export class CreateQuestionComponent implements OnInit{
                 var inputP1 = <HTMLInputElement>document.getElementById('answerP1');
                 var inputC1 = <HTMLInputElement>document.getElementById('answerC1');
 
-                this.createAndAddAnswer(inputB1, inputP1, inputC1);
+                setTimeout((inputB1, inputP1, inputC1) => this.createAndAddAnswer, 500);
 
                 var inputB2 = <HTMLInputElement>document.getElementById('answerB2');
                 var inputP2 = <HTMLInputElement>document.getElementById('answerP2');
                 var inputC2 = <HTMLInputElement>document.getElementById('answerC2');
 
-                this.createAndAddAnswer(inputB2, inputP2, inputC2);
+                setTimeout((inputB2, inputP2, inputC2) => this.createAndAddAnswer, 1000);
 
                 var inputB3 = <HTMLInputElement>document.getElementById('answerB3');
                 var inputP3 = <HTMLInputElement>document.getElementById('answerP3');
                 var inputC3 = <HTMLInputElement>document.getElementById('answerC3');
 
-                this.createAndAddAnswer(inputB3, inputP3, inputC3);
+                setTimeout((inputB3, inputP3, inputC3) => this.createAndAddAnswer, 1500);
 
                 var inputB4 = <HTMLInputElement>document.getElementById('answerB4');
                 var inputP4 = <HTMLInputElement>document.getElementById('answerP4');
                 var inputC4 = <HTMLInputElement>document.getElementById('answerC4');
 
-                this.createAndAddAnswer(inputB4, inputP4, inputC4);
+                setTimeout((inputB4, inputP4, inputC4) => this.createAndAddAnswer, 2000);
 
                 var gameQuestion = new GameQuestion(0, Number(localStorage.getItem('ActiveGame')), Number(localStorage.getItem('ActiveQuestion')));
                 this.http.post('http://localhost:3000/gamequestions', gameQuestion).subscribe(result => {
-                    window.location.reload();
+                    setTimeout(() => window.location.reload, 3000);
                 }, error => console.log(error));
             }, error => console.error(error));
         }    
