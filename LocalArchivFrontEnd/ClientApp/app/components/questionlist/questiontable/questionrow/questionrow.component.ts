@@ -36,7 +36,7 @@ export class QuestionRowComponent implements OnInit{
                     }
                 }
                 this.http.delete('http://localhost:3000/questions/' + this.question.questionId).subscribe(result => {
-                    window.location.reload();
+                    setTimeout(window.location.reload(), 3000);
                 }, error => console.log(error));
             }, error => console.log(error));
         }, error => console.log(error));

@@ -108,6 +108,9 @@ export class CreateQuestionComponent implements OnInit{
 
                     }, error => console.log(error));
                 }
+                this.http.delete('http://localhost:3000/games/' + localStorage.getItem('ActiveGame')).subscribe(result => {
+
+                }, error => console.log(error));
                 window.location.href = 'home';
             }, error => console.log(error));
         }, error => console.log(error));
@@ -170,7 +173,7 @@ export class CreateQuestionComponent implements OnInit{
                 this.http.post('http://localhost:3000/roundquestions', roundQuestion).subscribe(result => {
 
                 }, error => console.log(error));
-            }, error => console.error(error));
+            }, error => console.error(error));           
         }
     }
 }
