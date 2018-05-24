@@ -11,7 +11,11 @@ export class AnswerRowComponent implements OnInit{
     @Input() answer: Answer;
 
     updateRecord() {
-
+        if (localStorage.getItem('ChangeAnswer') != null) {
+            localStorage.removeItem('ChangeAnswer');
+        }
+        localStorage.setItem('ChangeAnswer', this.answer.answerId + '');
+        window.location.href = 'changeanswer';
     }
 
     removeRecord() {

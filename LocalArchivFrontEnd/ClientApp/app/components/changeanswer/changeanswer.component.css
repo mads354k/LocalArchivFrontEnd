@@ -50,3 +50,8 @@ button.accept {
     grid-column: 2/3;
     grid-row: 5/6;
 }
+
+button.icon {
+    background-color: dimgray;
+    border-radius: 10px;
+}
