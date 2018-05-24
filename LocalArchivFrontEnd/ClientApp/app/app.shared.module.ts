@@ -21,6 +21,7 @@ import { SpecificAnswerListComponent } from './components/specificanswerlist/spe
 import { SpecificQuestionListComponent } from './components/specificquestionlist/specificquestionlist.component';
 import { SpecificQuestionTableComponent } from './components/specificquestionlist/specificquestiontable/specificquestiontable.component';
 import { SpecificQuestionRowComponent } from './components/specificquestionlist/specificquestiontable/specificquestionrow/specificquestionrow.component';
+import { ChangeAnswerComponent } from './components/changeanswer/changeanswer.component';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import { SpecificQuestionRowComponent } from './components/specificquestionlist/
         SpecificQuestionListComponent,
         SpecificQuestionTableComponent,
         SpecificQuestionRowComponent,
+        ChangeAnswerComponent,
         HomeComponent
     ],
     imports: [
@@ -55,6 +57,7 @@ import { SpecificQuestionRowComponent } from './components/specificquestionlist/
             { path: 'answerlist', component: AnswerListComponent },
             { path: 'specificanswerlist', component: SpecificAnswerListComponent },
             { path: 'specificquestionlist', component: SpecificQuestionListComponent },
+            { path: 'changeanswer', component: ChangeAnswerComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

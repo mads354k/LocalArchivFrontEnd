@@ -1,0 +1,14 @@
+﻿<div class="setup">
+    <h1 class="position">Ændre svar</h1>
+    <label class="type">Svar type:</label>
+    <label class="description">Beskrivelse:</label>
+    <label class="picture">Billede:</label>
+    <div style="grid-column: 2/3; grid-row: 2/3;">
+        <button class="icon" id="answerT1" style="background-color:lawngreen" (click)="answerTypeText()"><span class="glyphicon glyphicon-text-background"></span></button>
+        <button class="icon" id="answerT2" (click)="answerTypePicture()"><span class="glyphicon glyphicon-picture"></span></button>
+    </div>
+    <input class="description" type="text" id="description" />
+    <input class="picture" type="file" id="picture" />
+    <button class="cancel" (click)="cancelChange()">Fortryd</button>
+    <button class="accept" (click)="acceptChange()">Foretag ændring</button>
+</div>

@@ -1,0 +1,52 @@
+﻿div.setup {
+    display: grid;
+    grid-gap: 10px 10px;
+    grid-template-columns: 1fr 2fr 5fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+}
+
+h1.position{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+label.type {
+    text-align: right;
+    align-self: center;
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+label.description {
+    text-align: right;
+    align-self: center;
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+label.picture {
+    text-align: right;
+    align-self: center;
+    grid-column: 1/2;
+    grid-row: 4/5;
+}
+
+input.description{
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+input.picture{
+    grid-column: 2/3;
+    grid-row: 4/5;
+}
+
+button.cancel{
+    grid-column: 1/2;
+    grid-row: 5/6;
+}
+
+button.accept {
+    grid-column: 2/3;
+    grid-row: 5/6;
+}
