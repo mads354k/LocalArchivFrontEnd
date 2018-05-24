@@ -10,7 +10,7 @@ import { Answer } from '../../answer/answer.model';
     styleUrls: ['./changequestion.component.css']
 })
 export class ChangeQuestionComponent implements OnInit {
-    answerType: string;
+    questionType: string;
 
     constructor(private http:Http) {}
 
@@ -22,7 +22,7 @@ export class ChangeQuestionComponent implements OnInit {
         var button1 = document.getElementById('questionT1');
         var button2 = document.getElementById('questionT2');
         if (button1 != null && button2 != null) {
-            this.answerType = 'Picture';
+            this.questionType = 'Picture';
             button1.setAttribute('style', 'background-color:dimgrey;');
             button2.setAttribute('style', 'background-color:lawngreen;');
         }
@@ -32,7 +32,7 @@ export class ChangeQuestionComponent implements OnInit {
         var button1 = document.getElementById('questionT1');
         var button2 = document.getElementById('questionT2');
         if (button1 != null && button2 != null) {
-            this.answerType = 'Text';
+            this.questionType = 'Text';
             button2.setAttribute('style', 'background-color:dimgrey;');
             button1.setAttribute('style', 'background-color:lawngreen;');
         }
@@ -46,11 +46,12 @@ export class ChangeQuestionComponent implements OnInit {
     acceptChange() {
         var inputD: HTMLInputElement = <HTMLInputElement>document.getElementById('description');
         var inputP: HTMLInputElement = <HTMLInputElement>document.getElementById('picture');
+        var inputH: HTMLInputElement = <HTMLInputElement>document.getElementById('hint');
 
         if (inputP.files != null) {
-            var answer = new Answer(0, inputD.value, this.answerType, inputP.files[0])
+            var question = new Question(0, inputD.value, this.questionType, inputP.files[0], inputH.value);
 
-            this.http.put('http://localhost:3000/questions/' + localStorage.getItem('ChangeQuestion'), answer).subscribe(result => {
+            this.http.put('http://localhost:3000/questions/' + localStorage.getItem('ChangeQuestion'), question).subscribe(result => {
                 localStorage.removeItem('ChangeQuestion');
                 window.location.href = 'questionlist';
             }, error => console.log(error));

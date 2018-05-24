@@ -13,7 +13,7 @@ div.smallSetup {
     grid-column: span 2;
     grid-row: 1/2;
     grid-template-columns: 20% 50%;
-    grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr;
 }
 
 h1.position{
@@ -21,62 +21,38 @@ h1.position{
     grid-row: 1/2;
 }
 
-label.type {
+label.name {
     text-align: right;
     align-self: center;
     grid-column: 1/2;
     grid-row: 2/3;
 }
 
-label.description {
+label.date {
     text-align: right;
     align-self: center;
     grid-column: 1/2;
     grid-row: 3/4;
 }
 
-label.picture {
-    text-align: right;
-    align-self: center;
-    grid-column: 1/2;
-    grid-row: 4/5;
+input.name{
+    grid-column: 2/3;
+    grid-row: 2/3;
 }
 
-label.hint {
-    text-align: right;
-    align-self: center;
-    grid-column: 1/2;
-    grid-row: 5/6;
-}
-
-input.description{
+input.date{
     grid-column: 2/3;
     grid-row: 3/4;
-}
-
-input.picture{
-    grid-column: 2/3;
-    grid-row: 4/5;
-}
-
-input.hint{
-    grid-column: 2/3;
-    grid-row: 5/6;
 }
 
 button.cancel{
     grid-column: 1/2;
-    grid-row: 6/7;
+    grid-row: 4/5;
     width: 50%;
 }
 
 button.accept {
     grid-column: 2/3;
-    grid-row: 6/7;
+    grid-row: 4/5;
     width: 50%;
-}
-
-button.icon {
-    background-color: dimgray;
-    border-radius: 10px;
 }

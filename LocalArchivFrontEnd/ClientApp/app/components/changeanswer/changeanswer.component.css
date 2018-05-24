@@ -41,14 +41,16 @@ input.picture{
     grid-row: 4/5;
 }
 
-button.cancel{
+button.cancel {
     grid-column: 1/2;
     grid-row: 5/6;
+    width: 50%;
 }
 
 button.accept {
     grid-column: 2/3;
     grid-row: 5/6;
+    width: 50%;
 }
 
 button.icon {
