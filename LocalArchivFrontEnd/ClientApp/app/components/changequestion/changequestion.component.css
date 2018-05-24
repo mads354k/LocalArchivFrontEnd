@@ -1,0 +1,68 @@
+﻿div.bigSetup {
+    display: grid;
+    grid-gap: 10px 10px;
+    grid-column: span 2;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows:  1fr 1fr;
+}
+
+div.smallSetup {
+    display: grid;
+    align-self: center;
+    grid-gap: 10px 10px;
+    grid-column: span 2;
+    grid-row: 1/2;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+}
+
+h1.position{
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+label.type {
+    text-align: right;
+    align-self: center;
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+label.description {
+    text-align: right;
+    align-self: center;
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+
+label.picture {
+    text-align: right;
+    align-self: center;
+    grid-column: 1/2;
+    grid-row: 4/5;
+}
+
+input.description{
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+input.picture{
+    grid-column: 2/3;
+    grid-row: 4/5;
+}
+
+button.cancel{
+    grid-column: 1/2;
+    grid-row: 5/6;
+}
+
+button.accept {
+    grid-column: 2/3;
+    grid-row: 5/6;
+}
+
+button.icon {
+    background-color: dimgray;
+    border-radius: 10px;
+}
