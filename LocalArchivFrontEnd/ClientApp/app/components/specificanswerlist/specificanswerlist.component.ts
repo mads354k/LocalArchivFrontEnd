@@ -9,6 +9,7 @@ import { RoundQuestion } from '../../roundquestion/roundquestion.model';
     templateUrl: './specificanswerlist.component.html'
 })
 export class SpecificAnswerListComponent implements OnInit{
+    list: ListAnswers[] = [];
     answers: Answer[] = []
     roundQuestions: RoundQuestion[] = [];  // THE MODEL 
 
@@ -28,6 +29,13 @@ export class SpecificAnswerListComponent implements OnInit{
                     this.roundQuestions.push(roundQuestion);
                 }
             }
+            setTimeout(() => {
+                for (var i = 0; i < this.roundQuestions.length; i++) {
+                    var listItem: ListAnswers = { answerId: this.answers[i].answerId, description: this.answers[i].description, answerType: this.answers[i].answerType, picture: this.answers[i].picture, isCorrectAnswer: this.roundQuestions[i].isCorrectAnswer };
+                    this.list.push(listItem);
+                }
+            }, roundQuestions.length*100);
+
         }, error => console.log(error));
     }
 
@@ -37,5 +45,13 @@ export class SpecificAnswerListComponent implements OnInit{
             this.answers.push(answer);
         }, error => console.log(error));
     }
+}
+
+interface ListAnswers {
+    answerId: number;
+    description: string;
+    answerType: string;
+    picture: File;
+    isCorrectAnswer: boolean;
 }
 

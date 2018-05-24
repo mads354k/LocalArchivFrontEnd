@@ -11,12 +11,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>{{answers.answerId}}</td>
-                <td>{{answers.description}}</td>
-                <td>{{answers.answerType}}</td>
-                <td>{{answers.picture}}</td>
-                <td>{{roundQuestions.isCorrectAnswer}}</td>
+            <tr *ngFor="let listItem of list">
+                <td>{{listItem.answerId}}</td>
+                <td>{{listItem.description}}</td>
+                <td>{{listItem.answerType}}</td>
+                <td>{{listItem.picture}}</td>
+                <td>{{listItem.isCorrectAnswer}}</td>
             </tr>
         </tbody>
     </table>

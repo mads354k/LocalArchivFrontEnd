@@ -135,29 +135,29 @@ export class CreateQuestionComponent implements OnInit{
                 var inputP1 = <HTMLInputElement>document.getElementById('answerP1');
                 var inputC1 = <HTMLInputElement>document.getElementById('answerC1');
 
-                setTimeout((inputB1, inputP1, inputC1) => this.createAndAddAnswer, 500);
+                setTimeout(() => { this.createAndAddAnswer(inputB1, inputP1, inputC1); }, 500);
 
                 var inputB2 = <HTMLInputElement>document.getElementById('answerB2');
                 var inputP2 = <HTMLInputElement>document.getElementById('answerP2');
                 var inputC2 = <HTMLInputElement>document.getElementById('answerC2');
 
-                setTimeout((inputB2, inputP2, inputC2) => this.createAndAddAnswer, 1000);
+                setTimeout(() => { this.createAndAddAnswer(inputB2, inputP2, inputC2); }, 1000);
 
                 var inputB3 = <HTMLInputElement>document.getElementById('answerB3');
                 var inputP3 = <HTMLInputElement>document.getElementById('answerP3');
                 var inputC3 = <HTMLInputElement>document.getElementById('answerC3');
 
-                setTimeout((inputB3, inputP3, inputC3) => this.createAndAddAnswer, 1500);
+                setTimeout(() => { this.createAndAddAnswer(inputB3, inputP3, inputC3); }, 1500);
 
                 var inputB4 = <HTMLInputElement>document.getElementById('answerB4');
                 var inputP4 = <HTMLInputElement>document.getElementById('answerP4');
                 var inputC4 = <HTMLInputElement>document.getElementById('answerC4');
 
-                setTimeout((inputB4, inputP4, inputC4) => this.createAndAddAnswer, 2000);
+                setTimeout(() => { this.createAndAddAnswer(inputB4, inputP4, inputC4); }, 2000);
 
                 var gameQuestion = new GameQuestion(0, Number(localStorage.getItem('ActiveGame')), Number(localStorage.getItem('ActiveQuestion')));
                 this.http.post('http://localhost:3000/gamequestions', gameQuestion).subscribe(result => {
-                    setTimeout(() => window.location.reload, 3000);
+                    setTimeout(() => { window.location.reload(); }, 3000);
                 }, error => console.log(error));
             }, error => console.error(error));
         }    
@@ -169,7 +169,7 @@ export class CreateQuestionComponent implements OnInit{
             var answer = new Answer(0, inputB.value, this.answerType, file);
             this.http.post('http://localhost:3000/answers', answer).subscribe(result => {
                 var answer = result.json() as Answer;
-                var roundQuestion = new RoundQuestion(0, Number(localStorage.getItem('ActiveQuestion')), answer.answerId, Boolean(inputC.value));
+                var roundQuestion = new RoundQuestion(0, Number(localStorage.getItem('ActiveQuestion')), answer.answerId, inputC.checked);
                 this.http.post('http://localhost:3000/roundquestions', roundQuestion).subscribe(result => {
 
                 }, error => console.log(error));
