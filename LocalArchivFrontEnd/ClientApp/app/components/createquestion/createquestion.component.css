@@ -12,7 +12,7 @@ div.smallSetup {
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
-h1.position{
+h1.position {
     grid-column: 2/3;
     grid-row: 1/2;
     font-size: 24px;
@@ -50,36 +50,46 @@ input.row1 {
     grid-column: 2/3;
     grid-row: 2/3;
     align-self: center;
+    border-radius: 5px
 }
 
 input.row2 {
     grid-column: 2/3;
     grid-row: 3/4;
     align-self: center;
+    border-radius: 5px
 }
 
 input.row3 {
     grid-column: 2/3;
     grid-row: 4/5;
     align-self: center;
+    border-radius: 5px
 }
 
 input.row4 {
     grid-column: 2/3;
     grid-row: 5/6;
     align-self: center;
+    border-radius: 5px
 }
 
 button.cancel {
     grid-column: 2/3;
     grid-row: 5/6;
     width: 50%;
+    background-color: red;
+    color: orange;
+    border-radius: 5px
 }
 
 button.addToGame {
     grid-column: 2/3;
     grid-row: 5/6;
     width: 50%;
+    background-color: forestgreen;
+    color: yellowgreen;
+    border-radius: 5px
 }
 
 button.icon{

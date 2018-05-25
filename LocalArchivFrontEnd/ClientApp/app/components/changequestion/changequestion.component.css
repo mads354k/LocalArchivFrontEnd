@@ -14,7 +14,7 @@ div.smallSetup {
     grid-row: 1/2;
     grid-template-columns: 20% 50%;
     grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
-    border-bottom: solid 1.5px black;
+    border-bottom: solid 1.5px mediumpurple;
 }
 
 h1.position{
@@ -53,23 +53,27 @@ label.hint {
 input.description{
     grid-column: 2/3;
     grid-row: 3/4;
+    border-radius: 5px;
 }
 
-input.picture{
+input.picture {
     grid-column: 2/3;
     grid-row: 4/5;
+    border-radius: 5px;
 }
 
-input.hint{
+input.hint {
     grid-column: 2/3;
     grid-row: 5/6;
+    border-radius: 5px;
 }
 
-button.cancel{
+button.cancel {
     grid-column: 1/2;
     grid-row: 6/7;
     width: 50%;
     margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 button.accept {
@@ -77,6 +81,7 @@ button.accept {
     grid-row: 6/7;
     width: 50%;
     margin-bottom: 10px;
+    border-radius: 5px;
 }
 
 button.icon {

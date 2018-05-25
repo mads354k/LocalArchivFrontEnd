@@ -1,8 +1,8 @@
 ﻿div.setup {
     display: grid;
     grid-gap: 10px 10px;
-    grid-template-columns: 1fr 2fr 5fr;
-    grid-template-rows: 2fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 15% 30% ;
+    grid-template-rows: 15% 15% 15% 15% 15%;
 }
 
 h1.position{
@@ -34,23 +34,27 @@ label.picture {
 input.description{
     grid-column: 2/3;
     grid-row: 3/4;
+    border-radius: 5px;
 }
 
-input.picture{
+input.picture {
     grid-column: 2/3;
     grid-row: 4/5;
+    border-radius: 5px;
 }
 
 button.cancel {
     grid-column: 1/2;
     grid-row: 5/6;
-    width: 50%;
+    width: 60%;
+    border-radius: 5px;
 }
 
 button.accept {
     grid-column: 2/3;
     grid-row: 5/6;
-    width: 50%;
+    width: 60%;
+    border-radius: 5px;
 }
 
 button.icon {

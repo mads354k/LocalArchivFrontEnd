@@ -10,11 +10,6 @@ export class AnswerListComponent implements OnInit{
     answers: Answer[] = [];  // THE MODEL 
     private http: Http;
 
-    gameWasSelected(answer: Answer): void {
-        console.log('This answer was chosen:' + JSON.stringify(answer));
-
-    }
-
     constructor(http: Http) {
         this.http = http;
     }
