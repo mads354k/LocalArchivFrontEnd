@@ -3,14 +3,14 @@
     Input,
     OnInit
 } from '@angular/core';
-import { Question } from '../../../../question/question.model';
+import { Answer } from '../../../../answer/answer.model';
 
 @Component({
-    selector: '[presentquestiontable]',
-    templateUrl: './presentquestiontable.component.html'
+    selector: '[presentanswertable]',
+    templateUrl: './presentanswertable.component.html'
 })
-export class PresentQuestionTableComponent implements OnInit {
-    @Input() questionList: Question[];
+export class PresentAnswerTableComponent implements OnInit {
+    @Input() answerList: Answer[];
 
     constructor() { }
 

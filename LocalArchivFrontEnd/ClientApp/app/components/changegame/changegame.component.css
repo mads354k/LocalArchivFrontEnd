@@ -14,7 +14,7 @@ div.smallSetup {
     grid-row: 1/2;
     grid-template-columns: 20% 50%;
     grid-template-rows: 2fr 1fr 1fr 1fr;
-    border-bottom: solid 2px black;
+    border-bottom: solid 1.5px black;
 }
 
 h1.position{

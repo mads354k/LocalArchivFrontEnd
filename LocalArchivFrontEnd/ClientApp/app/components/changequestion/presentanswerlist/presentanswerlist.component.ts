@@ -1,31 +1,31 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { Question } from '../../../question/question.model';
-import { GameQuestion } from '../../../gamequestion/gamequestion.model';
+import { Answer } from '../../../answer/answer.model';
+import { RoundQuestion } from '../../../roundquestion/roundquestion.model';
 
 @Component({
-    selector: 'presentquestionlist',
-    templateUrl: './presentquestionlist.component.html',
+    selector: 'presentanswerlist',
+    templateUrl: './presentanswerlist.component.html',
 })
-export class PresentQuestionListComponent {
-    questions: Question[] = [];
+export class PresentAnswerListComponent {
+    answers: Answer[] = [];
 
     constructor(private http: Http) { }
 
     ngOnInit() {
-        var gameId = Number(localStorage.getItem('ChangeGame'));
-        this.http.get('http://localhost:3000/gamequestions').subscribe(result => {
-            var gameQuestions = result.json() as GameQuestion[];
-            var questionIds: number[] = [];
-            for (let gameQuestion of gameQuestions) {
-                if (gameQuestion.gameId == gameId) {
-                    questionIds.push(gameQuestion.questionId);
+        var questionId = Number(localStorage.getItem('ChangeQuestion'));
+        this.http.get('http://localhost:3000/roundquestions').subscribe(result => {
+            var roundQuestions = result.json() as RoundQuestion[];
+            var answerIds: number[] = [];
+            for (let roundQuestion of roundQuestions) {
+                if (roundQuestion.questionId == questionId) {
+                    answerIds.push(roundQuestion.answerId);
                 }
             }
-            for (let questionId of questionIds) {
-                this.http.get('http://localhost:3000/questions/' + questionId).subscribe(result => {
-                    var question = result.json() as Question;
-                    this.questions.push(question);
+            for (let answerId of answerIds) {
+                this.http.get('http://localhost:3000/answers/' + answerId).subscribe(result => {
+                    var answer = result.json() as Answer;
+                    this.answers.push(answer);
                 }, error => console.log(error));
             }
         }, error => console.log(error));
