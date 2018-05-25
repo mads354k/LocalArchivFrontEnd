@@ -13,7 +13,15 @@ export class ChangeGameComponent implements OnInit {
     constructor(private http:Http) {}
 
     ngOnInit() {
-        
+        var inputN: HTMLInputElement = <HTMLInputElement>document.getElementById('name');
+        var inputD: HTMLInputElement = <HTMLInputElement>document.getElementById('date');
+        var gameId = localStorage.getItem('ChangeGame');
+
+        this.http.get('http://localhost:3000/games/' + gameId).subscribe(result => {
+            var game = result.json() as Game;
+            inputN.value = game.name;
+            inputD.value = game.date+'';
+        }, error => console.log(error));
     }
 
     cancelChange() {
@@ -27,10 +35,9 @@ export class ChangeGameComponent implements OnInit {
 
         var game = new Game(0, inputN.value, Number(inputD.value));
 
-            this.http.put('http://localhost:3000/games/' + localStorage.getItem('ChangeGame'), game).subscribe(result => {
-                localStorage.removeItem('ChangeGame');
-                window.location.href = 'gamelist';
-            }, error => console.log(error));
-        }
+        this.http.put('http://localhost:3000/games/' + localStorage.getItem('ChangeGame'), game).subscribe(result => {
+            localStorage.removeItem('ChangeGame');
+            window.location.href = 'gamelist';
+        }, error => console.log(error));      
     }
 }

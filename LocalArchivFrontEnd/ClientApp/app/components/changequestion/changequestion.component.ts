@@ -2,7 +2,6 @@
 import { Http } from '@angular/http';
 import { Question } from '../../question/question.model';
 import { RoundQuestion } from '../../roundquestion/roundquestion.model';
-import { Answer } from '../../answer/answer.model';
 
 @Component({
     selector: 'changequestion',
@@ -15,7 +14,22 @@ export class ChangeQuestionComponent implements OnInit {
     constructor(private http:Http) {}
 
     ngOnInit() {
-        
+        var inputD: HTMLInputElement = <HTMLInputElement>document.getElementById('description');
+        var inputP: HTMLInputElement = <HTMLInputElement>document.getElementById('picture');
+        var inputH: HTMLInputElement = <HTMLInputElement>document.getElementById('hint');
+        var questionId = localStorage.getItem('ChangeQuestion');
+
+        this.http.get('http://localhost:3000/questions/' + questionId).subscribe(result => {
+            var question = result.json() as Question;
+            inputD.value = question.description;
+            inputH.value = question.hint;
+            // TODO: add file
+            if (question.questionType === 'Text') {
+                this.questionTypeText();
+            } else {
+                this.questionTypePicture();
+            }
+        }, error => console.log(error));
     }
 
     questionTypePicture() {
