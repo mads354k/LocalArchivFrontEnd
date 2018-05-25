@@ -31,7 +31,8 @@ export class PresentAnswerRowComponent implements OnInit {
     constructor(private http: Http) { }
 
     ngOnInit() {
-        var inputCheckBox: HTMLInputElement = <HTMLInputElement>document.getElementById('isCorrect'); 
+        var inputCheckBox: HTMLInputElement = <HTMLInputElement>document.getElementById('Correct'); 
+
         inputCheckBox.checked = this.answer.isCorrect;
     }
 }

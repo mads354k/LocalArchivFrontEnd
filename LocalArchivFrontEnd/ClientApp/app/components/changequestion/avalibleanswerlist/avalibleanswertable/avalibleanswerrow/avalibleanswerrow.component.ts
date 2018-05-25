@@ -11,7 +11,8 @@ export class AvalibleAnswerRowComponent implements OnInit {
     @Input() answer: Answer;
 
     updateRecord() {
-        var inputCheckBox: HTMLInputElement = <HTMLInputElement>document.getElementById('isCorrect'); 
+        var inputCheckBox: HTMLInputElement = <HTMLInputElement>document.getElementById('isCorrect');
+        
         var questionId = Number(localStorage.getItem('ChangeQuestion'));
         var roundQuestion = new RoundQuestion(0, questionId, this.answer.answerId, inputCheckBox.checked);
         this.http.post('http://localhost:3000/roundquestions', roundQuestion).subscribe(result => {

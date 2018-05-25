@@ -22,15 +22,23 @@ export class PresentAnswerListComponent {
             for (let roundQuestion of roundQuestions) {
                 if (roundQuestion.questionId == questionId) {
                     answerIds.push(roundQuestion.answerId);
-                    isCorrect.push(roundQuestion.isCorrectAnswer);
+                    if (roundQuestion.isCorrectAnswer) {
+                        isCorrect.push(true);
+                    } else {
+                        isCorrect.push(false);
+                    }
                 }
             }
-            for (var i = 0; i < answerIds.length;i++) {
+            var innerCounter: number = 0;
+            var timer: number = 500;
+            for (var i = 0; i < answerIds.length; i++) {
                 this.http.get('http://localhost:3000/answers/' + answerIds[i]).subscribe(result => {
                     var answer = result.json() as Answer;
-                    var listItem = new AnswerListItem(answer.answerId, answer.description, answer.answerType, answer.picture, isCorrect[i]);
+                    var listItem = new AnswerListItem(answer.answerId, answer.description, answer.answerType, answer.picture, isCorrect[innerCounter]);
                     this.answers.push(listItem);
+                    innerCounter++;
                 }, error => console.log(error));
+                
             }
         }, error => console.log(error));
     }
