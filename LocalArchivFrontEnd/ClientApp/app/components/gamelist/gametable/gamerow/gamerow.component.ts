@@ -11,7 +11,11 @@ export class GameRowComponent implements OnInit{
     @Input() game: Game;
 
     updateRecord() {
-
+        if (localStorage.getItem('ChangeGame') != null) {
+            localStorage.removeItem('ChangeGame');
+        }
+        localStorage.setItem('ChangeGame', this.game.gameId + '');
+        window.location.href = 'changegame';
     }
 
     removeRecord() {
