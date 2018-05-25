@@ -12,6 +12,8 @@ export class AvalibleQuestionListComponent {
     constructor(private http: Http) { }
 
     ngOnInit() {
-
+        this.http.get('http://localhost:3000/questions').subscribe(result => {
+            this.questions = result.json() as Question[];
+        }, error => console.log(error));
     }
 }

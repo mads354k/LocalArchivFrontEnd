@@ -24,6 +24,13 @@ import { SpecificQuestionRowComponent } from './components/specificquestionlist/
 import { ChangeAnswerComponent } from './components/changeanswer/changeanswer.component';
 import { ChangeQuestionComponent } from './components/changequestion/changequestion.component';
 import { ChangeGameComponent } from './components/changegame/changegame.component';
+import { AvalibleQuestionListComponent } from './components/changegame/avaliblequestionlist/avaliblequestionlist.component';
+import { AvalibleQuestionTableComponent } from './components/changegame/avaliblequestionlist/avaliblequestiontable/avaliblequestiontable.component';
+import { AvalibleQuestionRowComponent } from './components/changegame/avaliblequestionlist/avaliblequestiontable/avaliblequestionrow/avaliblequestionrow.component';
+import { PresentQuestionListComponent } from './components/changegame/presentquestionlist/presentquestionlist.component';
+import { PresentQuestionTableComponent } from './components/changegame/presentquestionlist/presentquestiontable/presentquestiontable.component';
+import { PresentQuestionRowComponent } from './components/changegame/presentquestionlist/presentquestiontable/presentquestionrow/presentquestionrow.component';
+
 
 @NgModule({
     declarations: [
