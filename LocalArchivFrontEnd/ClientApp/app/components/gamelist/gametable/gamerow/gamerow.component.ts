@@ -11,6 +11,7 @@ export class GameRowComponent implements OnInit{
     @Input() game: Game;
 
     updateRecord() {
+        localStorage.setItem('SelectedGame', 'button');
         if (localStorage.getItem('ChangeGame') != null) {
             localStorage.removeItem('ChangeGame');
         }

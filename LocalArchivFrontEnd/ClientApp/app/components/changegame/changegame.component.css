@@ -14,7 +14,7 @@ div.smallSetup {
     grid-row: 1/2;
     grid-template-columns: 20% 50%;
     grid-template-rows: 2fr 1fr 1fr 1fr;
-    border-bottom: solid 3px black;
+    border-bottom: solid 2px black;
 }
 
 h1.position{
@@ -50,10 +50,12 @@ button.cancel{
     grid-column: 1/2;
     grid-row: 4/5;
     width: 50%;
+    margin-bottom: 5px;
 }
 
 button.accept {
     grid-column: 2/3;
     grid-row: 4/5;
     width: 50%;
+    margin-bottom: 5px;
 }

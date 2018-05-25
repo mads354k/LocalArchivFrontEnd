@@ -53,6 +53,12 @@ import { PresentQuestionRowComponent } from './components/changegame/presentques
         ChangeAnswerComponent,
         ChangeQuestionComponent,
         ChangeGameComponent,
+        AvalibleQuestionListComponent,
+        AvalibleQuestionTableComponent,
+        AvalibleQuestionRowComponent,
+        PresentQuestionListComponent,
+        PresentQuestionTableComponent,
+        PresentQuestionRowComponent,
         HomeComponent
     ],
     imports: [

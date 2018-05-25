@@ -12,6 +12,7 @@ export class QuestionRowComponent implements OnInit{
     @Input() question: Question;
 
     updateRecord() {
+        localStorage.setItem('SelectedQuestion', 'button');
         if (localStorage.getItem('ChangeQuestion') != null) {
             localStorage.removeItem('ChangeQuestion');
         }
