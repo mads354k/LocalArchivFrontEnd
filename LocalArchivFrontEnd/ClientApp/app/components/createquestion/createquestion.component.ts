@@ -135,29 +135,29 @@ export class CreateQuestionComponent implements OnInit{
                 var inputP1 = <HTMLInputElement>document.getElementById('answerP1');
                 var inputC1 = <HTMLInputElement>document.getElementById('answerC1');
 
-                setTimeout(() => { this.createAndAddAnswer(inputB1, inputP1, inputC1); }, 500);
+                setTimeout(() => { this.createAndAddAnswer(inputB1, inputP1, inputC1); }, 800);
 
                 var inputB2 = <HTMLInputElement>document.getElementById('answerB2');
                 var inputP2 = <HTMLInputElement>document.getElementById('answerP2');
                 var inputC2 = <HTMLInputElement>document.getElementById('answerC2');
 
-                setTimeout(() => { this.createAndAddAnswer(inputB2, inputP2, inputC2); }, 1000);
+                setTimeout(() => { this.createAndAddAnswer(inputB2, inputP2, inputC2); }, 1600);
 
                 var inputB3 = <HTMLInputElement>document.getElementById('answerB3');
                 var inputP3 = <HTMLInputElement>document.getElementById('answerP3');
                 var inputC3 = <HTMLInputElement>document.getElementById('answerC3');
 
-                setTimeout(() => { this.createAndAddAnswer(inputB3, inputP3, inputC3); }, 1500);
+                setTimeout(() => { this.createAndAddAnswer(inputB3, inputP3, inputC3); }, 2400);
 
                 var inputB4 = <HTMLInputElement>document.getElementById('answerB4');
                 var inputP4 = <HTMLInputElement>document.getElementById('answerP4');
                 var inputC4 = <HTMLInputElement>document.getElementById('answerC4');
 
-                setTimeout(() => { this.createAndAddAnswer(inputB4, inputP4, inputC4); }, 2000);
+                setTimeout(() => { this.createAndAddAnswer(inputB4, inputP4, inputC4); }, 3200);
 
                 var gameQuestion = new GameQuestion(0, Number(localStorage.getItem('ActiveGame')), Number(localStorage.getItem('ActiveQuestion')));
                 this.http.post('http://localhost:3000/gamequestions', gameQuestion).subscribe(result => {
-                    setTimeout(() => { window.location.reload(); }, 3000);
+                    setTimeout(() => { window.location.reload(); }, 3500);
                 }, error => console.log(error));
             }, error => console.error(error));
         }    
