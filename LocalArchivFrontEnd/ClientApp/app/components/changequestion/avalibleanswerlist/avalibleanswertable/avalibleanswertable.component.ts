@@ -3,14 +3,14 @@
     Input,
     OnInit
 } from '@angular/core';
-import { Question } from '../../../../question/question.model';
+import { Answer } from '../../../../answer/answer.model';
 
 @Component({
-    selector: '[avaliblequestiontable]',
-    templateUrl: './avaliblequestiontable.component.html'
+    selector: '[avalibleanswertable]',
+    templateUrl: './avalibleanswertable.component.html'
 })
-export class AvalibleQuestionTableComponent implements OnInit {
-    @Input() questionList: Question[];
+export class AvalibleAnswerTableComponent implements OnInit {
+    @Input() answerList: Answer[];
 
     constructor() { }
 

@@ -30,7 +30,9 @@ import { AvalibleQuestionRowComponent } from './components/changegame/avaliblequ
 import { PresentQuestionListComponent } from './components/changegame/presentquestionlist/presentquestionlist.component';
 import { PresentQuestionTableComponent } from './components/changegame/presentquestionlist/presentquestiontable/presentquestiontable.component';
 import { PresentQuestionRowComponent } from './components/changegame/presentquestionlist/presentquestiontable/presentquestionrow/presentquestionrow.component';
-
+import { AvalibleAnswerListComponent } from './components/changequestion/avalibleanswerlist/avalibleanswerlist.component';
+import { AvalibleAnswerTableComponent } from './components/changequestion/avalibleanswerlist/avalibleanswertable/avalibleanswertable.component';
+import { AvalibleAnswerRowComponent } from './components/changequestion/avalibleanswerlist/avalibleanswertable/avalibleanswerrow/avalibleanswerrow.component';
 
 @NgModule({
     declarations: [
@@ -59,6 +61,9 @@ import { PresentQuestionRowComponent } from './components/changegame/presentques
         PresentQuestionListComponent,
         PresentQuestionTableComponent,
         PresentQuestionRowComponent,
+        AvalibleAnswerListComponent,
+        AvalibleAnswerTableComponent,
+        AvalibleAnswerRowComponent,
         HomeComponent
     ],
     imports: [

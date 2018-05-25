@@ -1,19 +1,19 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { Question } from '../../../question/question.model';
+import { Answer } from '../../../answer/answer.model';
 
 @Component({
-    selector: 'avaliblequestionlist',
-    templateUrl: './avaliblequestionlist.component.html',
+    selector: 'avalibleanswerlist',
+    templateUrl: './avalibleanswerlist.component.html',
 })
-export class AvalibleQuestionListComponent {
-    questions: Question[];
+export class AvalibleAnswerListComponent {
+    answers: Answer[];
 
     constructor(private http: Http) { }
 
     ngOnInit() {
-        this.http.get('http://localhost:3000/questions').subscribe(result => {
-            this.questions = result.json() as Question[];
+        this.http.get('http://localhost:3000/answers').subscribe(result => {
+            this.answers = result.json() as Answer[];
         }, error => console.log(error));
     }
 }

@@ -1,19 +1,20 @@
 ﻿import { Component, Inject, OnInit, Input } from '@angular/core';
 import { Http } from '@angular/http';
-import { Question } from '../../../../../question/question.model';
-import { GameQuestion } from '../../../../../gamequestion/gamequestion.model';
+import { Answer } from '../../../../../answer/answer.model';
+import { RoundQuestion } from '../../../../../roundquestion/roundquestion.model';
 
 @Component({
-    selector: '[avaliblequestionrow]',
-    templateUrl: './avaliblequestionrow.component.html'
+    selector: '[avalibleanswerrow]',
+    templateUrl: './avalibleanswerrow.component.html'
 })
-export class AvalibleQuestionRowComponent implements OnInit {
-    @Input() question: Question;
+export class AvalibleAnswerRowComponent implements OnInit {
+    @Input() answer: Answer;
 
     updateRecord() {
-        var gameId = Number(localStorage.getItem('ChangeGame'));
-        var gameQuestion = new GameQuestion(0, gameId, this.question.questionId);
-        this.http.post('http://localhost:3000/gamequestions', gameQuestion).subscribe(result => {
+        var inputCheckBox: HTMLInputElement = <HTMLInputElement>document.getElementById('isCorrect'); 
+        var questionId = Number(localStorage.getItem('ChangeQuestion'));
+        var roundQuestion = new RoundQuestion(0, questionId, this.answer.answerId, inputCheckBox.checked);
+        this.http.post('http://localhost:3000/roundquestions', roundQuestion).subscribe(result => {
             window.location.reload();
         }, error => console.log(error));
     }
