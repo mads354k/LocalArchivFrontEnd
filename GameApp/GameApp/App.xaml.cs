@@ -15,7 +15,8 @@ namespace GameApp
 
             //MainPage = new GameApp.MainPage();
             //MainPage = new GameApp.QuestionPage();
-            MainPage = new GameApp.ScoreBoard();
+            //MainPage = new GameApp.ScoreBoard();
+            MainPage = new GameApp.SlutPage();
         }
 
 		protected override void OnStart ()
