@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:GameApp"
              x:Class="GameApp.MainPage">
 
-	<Label Text="Welcome to Xamarin.Forms!" 
+    <Label Text="Welcome to Xamarin.Forms!" 
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
