@@ -1,12 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GameApp"
              x:Class="GameApp.QuestionPage">
+    
     <ContentPage.Content>
 
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label x:Name="question" HorizontalOptions="Center" VerticalOptions="Center"></Label>
-           
+            <Label x:Name="question" Text="Hvor gammel er broager kirke?" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50*"></RowDefinition>
+                    <RowDefinition Height="50*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100*"></ColumnDefinition>
+                    <ColumnDefinition Width="100*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="question1" Text="år 1900"></Button>
+                <Button x:Name="question2" Grid.Column="1" Text="år 1800"></Button>
+                <Button x:Name="question3" Grid.Row="1" Text="år 1700"></Button>
+                <Button x:Name="question4" Grid.Column="1" Grid.Row="1" Text="år 1600"></Button>
+            </Grid>
         </StackLayout>
        
     </ContentPage.Content>

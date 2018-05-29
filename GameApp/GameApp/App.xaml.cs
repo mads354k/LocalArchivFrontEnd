@@ -13,8 +13,9 @@ namespace GameApp
 		{
 			InitializeComponent();
 
-			MainPage = new GameApp.MainPage();
-		}
+            //MainPage = new GameApp.MainPage();
+            MainPage = new GameApp.QuestionPage();
+        }
 
 		protected override void OnStart ()
 		{

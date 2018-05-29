@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:GameApp"
              x:Class="GameApp.MainPage"
              Title="Broagerlands arkiv spil">
+    
     <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
         <Label Text="Broagerlands arkiv spil" VerticalOptions="Center" HorizontalOptions="Center" />
         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
@@ -12,7 +13,7 @@
                     <x:String>Broager</x:String>
                 </Picker.Items>
             </Picker>
-            <Button x:Name="buttinStartSpil" Text="Start spil" Clicked="Button_Start_Spil" VerticalOptions="Center" HorizontalOptions="Center"></Button>
+            <Button x:Name="buttonStartSpil" Text="Start spil" Clicked="Button_Start_Spil" VerticalOptions="Center" HorizontalOptions="Center"></Button>
         </StackLayout>
     </StackLayout>
   
