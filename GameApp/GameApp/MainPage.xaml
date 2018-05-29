@@ -2,10 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:GameApp"
-             x:Class="GameApp.MainPage">
-
-    <Label Text="Welcome to Xamarin.Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+             x:Class="GameApp.MainPage"
+             Title="Broagerlands arkiv spil">
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="Broagerlands arkiv spil" VerticalOptions="Center" HorizontalOptions="Center" />
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Picker x:Name="picker" Title="vælg spil" HorizontalOptions="Center" VerticalOptions="Center">
+                <Picker.Items>
+                    <x:String>Broager</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button x:Name="buttinStartSpil" Text="Start spil" Clicked="Button_Start_Spil" VerticalOptions="Center" HorizontalOptions="Center"></Button>
+        </StackLayout>
+    </StackLayout>
+  
 
 </ContentPage>

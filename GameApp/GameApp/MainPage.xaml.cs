@@ -13,5 +13,10 @@ namespace GameApp
 		{
 			InitializeComponent();
 		}
-	}
+
+        private void Button_Start_Spil(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
