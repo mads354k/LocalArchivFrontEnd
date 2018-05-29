@@ -16,7 +16,7 @@ namespace GameApp
 
         private void Button_Start_Spil(object sender, EventArgs e)
         {
-
+            Navigation.PushAsync(new QuestionPage());
         }
     }
 }

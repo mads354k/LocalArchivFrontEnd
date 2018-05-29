@@ -17,10 +17,10 @@
                     <ColumnDefinition Width="100*"></ColumnDefinition>
                     <ColumnDefinition Width="100*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="question1" Text="år 1900"></Button>
-                <Button x:Name="question2" Grid.Column="1" Text="år 1800"></Button>
-                <Button x:Name="question3" Grid.Row="1" Text="år 1700"></Button>
-                <Button x:Name="question4" Grid.Column="1" Grid.Row="1" Text="år 1600"></Button>
+                <Button x:Name="question1" Clicked="answerSelected" Text="år 1900"></Button>
+                <Button x:Name="question2" Clicked="answerSelected" Grid.Column="1" Text="år 1800"></Button>
+                <Button x:Name="question3" Clicked="answerSelected" Grid.Row="1" Text="år 1700"></Button>
+                <Button x:Name="question4" Clicked="answerSelected" Grid.Column="1" Grid.Row="1" Text="år 1600"></Button>
             </Grid>
         </StackLayout>
        

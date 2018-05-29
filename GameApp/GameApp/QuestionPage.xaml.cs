@@ -16,5 +16,10 @@ namespace GameApp
 		{
 			InitializeComponent ();
 		}
+
+        private void answerSelected(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new ScoreBoard());
+        } 
 	}
 }
