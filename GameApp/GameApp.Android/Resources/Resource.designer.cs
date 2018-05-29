@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("LocalArchivGameApp.Droid.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("GameApp.Droid.Resource", IsApplication=true)]
 
-namespace LocalArchivGameApp.Droid
+namespace GameApp.Droid
 {
 	
 	
@@ -26,7 +26,7 @@ namespace LocalArchivGameApp.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::LocalArchivGameApp.Droid.Resource.Attribute.actionBarSize;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::GameApp.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation
