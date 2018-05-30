@@ -4,10 +4,20 @@
              xmlns:local="clr-namespace:GameApp"
              x:Class="GameApp.ScoreBoard"
              Title="Broagerlands arkiv spil">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="Green"></Setter>
+                <Setter Property="FontSize" Value="100"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label x:Name="scoreLabel" Text="score" HorizontalOptions="Center" VerticalOptions="Center"></Label>
-            <Label x:Name="rundeLabel" Text="runde" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            <Label x:Name="scoreLabel" Text="score"></Label>
+            <Label x:Name="rundeLabel" Text="runde"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
