@@ -4,10 +4,20 @@
               xmlns:local="clr-namespace:GameApp"
              x:Class="GameApp.SlutPage"
              Title="Broagerlands arkiv spil">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="100"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label x:Name="endGame" Text="Spillet er slut" HorizontalOptions="Center" VerticalOptions="Center"></Label>
-            <Label x:Name="endScore" Text="score" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            <Label x:Name="endGame" Text="Spillet er slut"></Label>
+            <Label x:Name="endScore" Text="score"></Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
