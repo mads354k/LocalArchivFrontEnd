@@ -4,11 +4,27 @@
              xmlns:local="clr-namespace:GameApp"
              x:Class="GameApp.QuestionPage"
              Title="Broagerlands arkiv spil">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="50"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="BackgroundColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="40"></Setter>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     
     <ContentPage.Content>
-
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label x:Name="question" Text="Hvor gammel er broager kirke?" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
+            <Label x:Name="question" Text="Hvor gammel er broager kirke?"></Label>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50*"></RowDefinition>
