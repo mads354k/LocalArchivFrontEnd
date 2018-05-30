@@ -4,18 +4,54 @@
              xmlns:local="clr-namespace:GameApp"
              x:Class="GameApp.MainPage"
              Title="Broagerlands arkiv spil">
-    
-    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-        <Label Text="Broagerlands arkiv spil" VerticalOptions="Center" HorizontalOptions="Center" />
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-            <Picker x:Name="picker" Title="vælg spil" HorizontalOptions="Center" VerticalOptions="Center">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="50"></Setter>
+            </Style>
+            <Style TargetType="Picker">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="Blue"></Setter>
+                <Setter Property="WidthRequest" Value="300"></Setter>
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Center"></Setter>
+                <Setter Property="VerticalOptions" Value="Center"></Setter>
+                <Setter Property="TextColor" Value="White"></Setter>
+                <Setter Property="BackgroundColor" Value="Black"></Setter>
+                <Setter Property="FontSize" Value="37"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50*"></RowDefinition>
+                <RowDefinition Height="50*"></RowDefinition>
+                <RowDefinition Height="50*"></RowDefinition>
+
+
+            </Grid.RowDefinitions>
+
+            <Label Text="Broagerlands arkiv spil" />
+
+            <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="Center">
+                <Picker x:Name="picker" Title="vælg spil" >
                 <Picker.Items>
                     <x:String>Broager</x:String>
                 </Picker.Items>
-            </Picker>
-            <Button x:Name="buttonStartSpil" Text="Start spil" Clicked="Button_Start_Spil" VerticalOptions="Center" HorizontalOptions="Center"></Button>
-        </StackLayout>
-    </StackLayout>
-  
+                </Picker>
+                <Button x:Name="buttonStartSpil" Text="Start spil" Clicked="Button_Start_Spil" ></Button>
+            </StackLayout>
+
+
+        </Grid>
+
+    </ContentPage.Content>
 
 </ContentPage>
