@@ -13,17 +13,33 @@ namespace GameApp
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ScoreBoard : ContentPage
 	{
-        public ScoreBoard ()
+        private int Score { get; set; }
+        private int GameId { get; set; }
+        private int[] UsedQuestions { get; set; }
+
+        public ScoreBoard (int score, int gameId, int[] usedQuestions)
 		{
 			InitializeComponent ();
-            Device.StartTimer(new TimeSpan(0,0,0,0,10000), () => { changePage(); return false; });
-           
-          
+            this.Score = score;
+            this.GameId = gameId;
+            this.UsedQuestions = usedQuestions;
+
+            ShowScore();
+
+            Device.StartTimer(new TimeSpan(0,0,0,0,10000), () => { ChangePage(); return false; });
 		}
-        private void changePage()
+
+        private void ShowScore()
         {
-           
-            Navigation.PushAsync(new QuestionPage());
+            string scoreText = "Din Score: " + this.Score;
+            this.scoreLabel.Text = scoreText;
+
+            this.rundeLabel.Text = "Næste Runde: " + (this.UsedQuestions.Length + 1);
+        }
+
+        private void ChangePage()
+        {
+            Navigation.PushAsync(new QuestionPage(this.Score, this.GameId, this.UsedQuestions));
         }
 	}
 }
