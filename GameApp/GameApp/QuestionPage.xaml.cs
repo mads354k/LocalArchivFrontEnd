@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Net.Http;
 
 namespace GameApp
 {
@@ -17,6 +18,7 @@ namespace GameApp
         private Question CurrentQuestion { get; set; }
         private Answer[] Answers { get; set; }
         private RoundQuestion CorrectAnswer { get; set; }
+        private HttpClient client = new HttpClient();
 
 		public QuestionPage (int score, int gameId, int[] usedQuestions)
 		{
@@ -24,6 +26,7 @@ namespace GameApp
             this.Score = score;
             this.GameId = gameId;
             this.UsedQuestions = usedQuestions;
+            
 
             GetQuestion();
             GetAnswers();
@@ -34,7 +37,7 @@ namespace GameApp
 
         private void GetQuestion()
         {
-
+       
         }
 
         private void GetAnswers()

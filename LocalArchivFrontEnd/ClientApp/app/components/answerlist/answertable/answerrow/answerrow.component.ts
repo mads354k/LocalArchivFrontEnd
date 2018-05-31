@@ -22,12 +22,14 @@ export class AnswerRowComponent implements OnInit{
         this.http.get('http://localhost:3000/roundquestions').subscribe(result => {
             var gottenList = result.json() as RoundQuestion[];
             for (let item of gottenList) {
+                // remove connections to questions
                 if (item.answerId == this.answer.answerId) {
                     this.http.delete('http://localhost:3000/roundquestions/' + item.id).subscribe(result => {
 
                     }, error => console.log(error));
                 }
             }
+            // remove the answer
             this.http.delete('http://localhost:3000/answers/' + this.answer.answerId).subscribe(result => {
                 setTimeout(window.location.reload(), 3000);
             }, error => console.log(error));

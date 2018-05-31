@@ -169,6 +169,7 @@ export class CreateQuestionComponent implements OnInit{
             var answer = new Answer(0, inputB.value, this.answerType, file);
             this.http.post('http://localhost:3000/answers', answer).subscribe(result => {
                 var answer = result.json() as Answer;
+                // bind answer to question
                 var roundQuestion = new RoundQuestion(0, Number(localStorage.getItem('ActiveQuestion')), answer.answerId, inputC.checked);
                 this.http.post('http://localhost:3000/roundquestions', roundQuestion).subscribe(result => {
 

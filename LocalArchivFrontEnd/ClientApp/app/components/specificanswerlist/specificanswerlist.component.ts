@@ -29,6 +29,7 @@ export class SpecificAnswerListComponent implements OnInit{
                     this.roundQuestions.push(roundQuestion);
                 }
             }
+             //set timer are to avoid null
             setTimeout(() => {
                 for (var i = 0; i < this.roundQuestions.length; i++) {
                     var listItem: ListAnswers = { answerId: this.answers[i].answerId, description: this.answers[i].description, answerType: this.answers[i].answerType, picture: this.answers[i].picture, isCorrectAnswer: this.roundQuestions[i].isCorrectAnswer };

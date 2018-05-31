@@ -6,6 +6,7 @@
              Title="Broagerlands arkiv spil">
     <ContentPage.Resources>
         <ResourceDictionary>
+            
             <Style TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center"></Setter>
                 <Setter Property="VerticalOptions" Value="Center"></Setter>
