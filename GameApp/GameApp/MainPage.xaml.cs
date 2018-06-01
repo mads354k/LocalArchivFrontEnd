@@ -18,9 +18,15 @@ namespace GameApp
             GetGames();
 		}
 
-        private void GetGames()
+        private async void GetGames()
         {
+            HttpInterface http = new HttpInterface("http://10.176.164.129:3000/");
 
+            var x = await http.MakeGetRequest<List<Game>>("games");
+            if (x.Count > 0)
+            {
+                DisplayAlert("test", x[0].Name, "close");
+            }
         }
 
         private void SelectGame()
