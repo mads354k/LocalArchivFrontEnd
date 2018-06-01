@@ -28,8 +28,6 @@ namespace GameApp
             this.UsedQuestions = usedQuestions;      
 
             GetQuestion();
-            GetAnswers();
-
 		}
 
         private async void GetQuestion()
@@ -59,6 +57,8 @@ namespace GameApp
             this.CurrentQuestion = questions[randomNumber];
 
             this.UsedQuestions.Add(randomNumber);
+
+            GetAnswers();
 
             DisplayQuestion();
         }
