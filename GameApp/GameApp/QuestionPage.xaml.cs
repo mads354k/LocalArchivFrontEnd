@@ -30,19 +30,40 @@ namespace GameApp
             GetQuestion();
             GetAnswers();
 
-            DisplayQuestion();
-            DisplayAnswers();
 		}
 
-        private void GetQuestion()
+        private async void GetQuestion()
         {
-           
+            var gameQuestions = await this.http.MakeGetRequest<List<GameQuestion>>("gamequestions");
+            List<Question> questions = new List<Question>();
 
+            foreach (var item in gameQuestions)
+            {
+                if (item.GameId == this.GameId)
+                {
+                    questions.Add(await this.http.MakeGetRequest<Question>("question/"+item.QuestionId));
+                }
+            }
+
+            Random rng = new Random();
+
+            foreach (var index in this.UsedQuestions)
+            {
+                questions[index] = null;
+            }
+
+            questions.Remove(null);
+
+            this.CurrentQuestion = questions[rng.Next(0, questions.Count - 1)];
+
+            DisplayQuestion();
         }
 
-        private void GetAnswers()
+        private async void GetAnswers()
         {
 
+
+            DisplayAnswers();
         }
 
         private void DisplayQuestion()
@@ -60,7 +81,7 @@ namespace GameApp
 
         private bool AnswerIsCorrect(string answer)
         {
-            for (int i = 0; i < this.Answers.Length; i++)
+            for (int i = 0; i < this.Answers.Count; i++)
             {
                 if (this.Answers[i].Description.Equals(answer) && this.Answers[i].AnswerId == this.CorrectAnswer.AnswerId)
                 {
