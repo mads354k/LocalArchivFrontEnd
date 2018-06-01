@@ -16,5 +16,10 @@ namespace GameApp
             this.Name = name;
             this.Date = date;
         }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

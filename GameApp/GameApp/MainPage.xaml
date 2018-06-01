@@ -41,10 +41,8 @@
             <Label Text="Broagerlands arkiv spil" />
 
             <StackLayout Orientation="Horizontal" Grid.Row="1" HorizontalOptions="Center">
-                <Picker x:Name="picker" Title="vælg spil" >
-                <Picker.Items>
-                    <x:String>Broager</x:String>
-                </Picker.Items>
+                <Picker x:Name="picker" Title="vælg spil" ItemsSource="{Binding ListOfGames}">
+
                 </Picker>
                 <Button x:Name="buttonStartSpil" Text="Start spil" Clicked="Button_Start_Spil" ></Button>
             </StackLayout>

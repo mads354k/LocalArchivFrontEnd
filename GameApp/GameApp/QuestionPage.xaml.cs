@@ -25,8 +25,7 @@ namespace GameApp
 			InitializeComponent ();
             this.Score = score;
             this.GameId = gameId;
-            this.UsedQuestions = usedQuestions;
-            
+            this.UsedQuestions = usedQuestions;      
 
             GetQuestion();
             GetAnswers();
