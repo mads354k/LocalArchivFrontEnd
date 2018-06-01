@@ -18,19 +18,22 @@ namespace GameApp
         private Question CurrentQuestion { get; set; }
         private List<Answer> Answers { get; set; }
         private RoundQuestion CorrectAnswer { get; set; }
+
         private HttpInterface http = new HttpInterface("http://10.176.164.129:3000/");
 
         public QuestionPage (int score, int gameId, List<int> usedQuestions)
 		{
 			InitializeComponent ();
+
             this.Score = score;
             this.GameId = gameId;
-            this.UsedQuestions = usedQuestions;      
+            this.UsedQuestions = new List<int>(usedQuestions);
 
-            GetQuestion();
-		}
+            GetQuestion().Wait();
+            GetAnswers().Wait();
+        }
 
-        private async void GetQuestion()
+        private async Task GetQuestion()
         {
             var gameQuestions = await this.http.MakeGetRequest<List<GameQuestion>>("gamequestions");
             List<Question> questions = new List<Question>();
@@ -39,7 +42,8 @@ namespace GameApp
             {
                 if (item.GameId == this.GameId)
                 {
-                    questions.Add(await this.http.MakeGetRequest<Question>("question/"+item.QuestionId));
+                    var question = await this.http.MakeGetRequest<Question>("question/" + item.QuestionId);
+                    questions.Add(question);
                 }
             }
 
@@ -58,28 +62,27 @@ namespace GameApp
 
             this.UsedQuestions.Add(randomNumber);
 
-            GetAnswers();
-
             DisplayQuestion();
         }
 
-        private async void GetAnswers()
+        private async Task GetAnswers()
         {
-            var roundQuestions = await this.http.MakeGetRequest<List<RoundQuestion>>("roundquestions");
+                var roundQuestions = await this.http.MakeGetRequest<List<RoundQuestion>>("roundquestions");
 
-            foreach (var item in roundQuestions)
-            {
-                if (item.QuestionId == this.CurrentQuestion.QuestionId)
+                foreach (var item in roundQuestions)
                 {
-                    this.Answers.Add(await this.http.MakeGetRequest<Answer>("answers/"+item.AnswerId));
-                    if (item.IsCorrectAnswer)
+                    if (item.QuestionId == this.CurrentQuestion.QuestionId)
                     {
-                        this.CorrectAnswer = item;
+                        var answer = await this.http.MakeGetRequest<Answer>("answers/" + item.AnswerId);
+                        this.Answers.Add(answer);
+                        if (item.IsCorrectAnswer)
+                        {
+                            this.CorrectAnswer = item;
+                        }
                     }
                 }
-            }
 
-            DisplayAnswers();
+                DisplayAnswers();
         }
 
         private void DisplayQuestion()
