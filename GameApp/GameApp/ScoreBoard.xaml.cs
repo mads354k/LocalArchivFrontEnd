@@ -14,9 +14,9 @@ namespace GameApp
 	{
         private int Score { get; set; }
         private int GameId { get; set; }
-        private int[] UsedQuestions { get; set; }
+        private List<int> UsedQuestions { get; set; }
 
-        public ScoreBoard (int score, int gameId, int[] usedQuestions)
+        public ScoreBoard (int score, int gameId, List<int> usedQuestions)
 		{
 			InitializeComponent ();
             this.Score = score;
@@ -33,7 +33,7 @@ namespace GameApp
             string scoreText = "Din Score: " + this.Score;
             this.scoreLabel.Text = scoreText;
 
-            this.rundeLabel.Text = "Næste Runde: " + (this.UsedQuestions.Length + 1);
+            this.rundeLabel.Text = "Næste Runde: " + (this.UsedQuestions.Count + 1);
         }
 
         private void ChangePage()

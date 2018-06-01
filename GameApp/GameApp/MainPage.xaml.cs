@@ -40,7 +40,7 @@ namespace GameApp
         private void Button_Start_Spil(object sender, EventArgs e)
         {
             SelectGame();
-            Navigation.PushAsync(new QuestionPage(0, this.GameId, new int[0]));
+            Navigation.PushAsync(new QuestionPage(0, this.GameId, new List<int>(0)));
         }
     }
 }

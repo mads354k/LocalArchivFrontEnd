@@ -14,13 +14,13 @@ namespace GameApp
 	{
         private int Score { get; set; }
         private int GameId { get; set; }
-        private int[] UsedQuestions { get; set; }
+        private List<int> UsedQuestions { get; set; }
         private Question CurrentQuestion { get; set; }
-        private Answer[] Answers { get; set; }
+        private List<Answer> Answers { get; set; }
         private RoundQuestion CorrectAnswer { get; set; }
-        private HttpClient client = new HttpClient();
+        private HttpInterface http = new HttpInterface("http://10.176.164.129:3000/");
 
-		public QuestionPage (int score, int gameId, int[] usedQuestions)
+        public QuestionPage (int score, int gameId, List<int> usedQuestions)
 		{
 			InitializeComponent ();
             this.Score = score;
@@ -36,7 +36,8 @@ namespace GameApp
 
         private void GetQuestion()
         {
-       
+           
+
         }
 
         private void GetAnswers()
@@ -85,7 +86,7 @@ namespace GameApp
                 }
             }
 
-            if (this.UsedQuestions.Length <= 10) {
+            if (this.UsedQuestions.Count <= 10) {
                 Navigation.PushAsync(new ScoreBoard(this.Score, this.GameId, this.UsedQuestions));
             }
             else
