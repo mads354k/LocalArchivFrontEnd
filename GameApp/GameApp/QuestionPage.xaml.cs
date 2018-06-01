@@ -123,12 +123,12 @@ namespace GameApp
                 }
             }
 
-            if (this.UsedQuestions.Count <= 10) {
-                Navigation.PushAsync(new ScoreBoard(this.Score, this.GameId, this.UsedQuestions));
+            if (this.UsedQuestions.Count > 10) {
+                Navigation.PushAsync(new SlutPage(this.Score));
             }
             else
             {
-                Navigation.PushAsync(new SlutPage(this.Score));
+                Navigation.PushAsync(new ScoreBoard(this.Score, this.GameId, this.UsedQuestions));
             }
         } 
 	}
