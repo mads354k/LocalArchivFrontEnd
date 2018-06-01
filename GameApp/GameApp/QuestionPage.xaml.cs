@@ -54,14 +54,30 @@ namespace GameApp
 
             questions.Remove(null);
 
-            this.CurrentQuestion = questions[rng.Next(0, questions.Count - 1)];
+            int randomNumber = rng.Next(0, questions.Count - 1);
+
+            this.CurrentQuestion = questions[randomNumber];
+
+            this.UsedQuestions.Add(randomNumber);
 
             DisplayQuestion();
         }
 
         private async void GetAnswers()
         {
+            var roundQuestions = await this.http.MakeGetRequest<List<RoundQuestion>>("roundquestions");
 
+            foreach (var item in roundQuestions)
+            {
+                if (item.QuestionId == this.CurrentQuestion.QuestionId)
+                {
+                    this.Answers.Add(await this.http.MakeGetRequest<Answer>("answers/"+item.AnswerId));
+                    if (item.IsCorrectAnswer)
+                    {
+                        this.CorrectAnswer = item;
+                    }
+                }
+            }
 
             DisplayAnswers();
         }
