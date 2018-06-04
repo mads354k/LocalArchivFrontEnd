@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
+using System.Timers;
 
 namespace GameApp
 {
@@ -25,8 +26,19 @@ namespace GameApp
             Random rng = new Random();
             this.RandomIndex = rng.Next(0, this.Questions.Count - 1);
 
+            Timer timer = new Timer();
+
+            timer.Elapsed += DisplayHint;
+            timer.Interval = 20000;
+
             DisplayQuestion();
             DisplayAnswers();
+            timer.Start();
+        }
+
+        private void DisplayHint(object sender, EventArgs e)
+        {
+            this.hint.Text = "Hint: " + this.Questions[this.RandomIndex].Question.Hint;
         }
 
         private void DisplayQuestion()
