@@ -16,6 +16,7 @@ namespace GameApp
         private int Score { get; set; }
         private List<Round> Questions { get; set; }
         private int RandomIndex { get; set; }
+        private Timer timer = new Timer();
 
         public QuestionPage (int score, List<Round> questions)
 		{
@@ -25,8 +26,6 @@ namespace GameApp
             this.Questions = new List<Round>(questions);
             Random rng = new Random();
             this.RandomIndex = rng.Next(0, this.Questions.Count - 1);
-
-            Timer timer = new Timer();
 
             timer.Elapsed += DisplayHint;
             timer.Interval = 20000;
