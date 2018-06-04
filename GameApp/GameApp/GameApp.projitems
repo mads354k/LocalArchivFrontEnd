@@ -13,23 +13,23 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)MainPage.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Answer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Answer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Game.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GameQuestion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Game.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\GameQuestion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpInterface.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Question.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Question.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QuestionPage.xaml.cs">
       <DependentUpon>QuestionPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Round.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)RoundQuestion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\Round.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Model\RoundQuestion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ScoreBoard.xaml.cs">
       <DependentUpon>ScoreBoard.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -56,5 +56,8 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Model\" />
   </ItemGroup>
 </Project>
