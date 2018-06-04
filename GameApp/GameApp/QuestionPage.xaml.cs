@@ -13,96 +13,37 @@ namespace GameApp
 	public partial class QuestionPage : ContentPage
 	{
         private int Score { get; set; }
-        private int GameId { get; set; }
-        private List<int> UsedQuestions { get; set; }
-        private Question CurrentQuestion { get; set; }
-        private List<Answer> Answers { get; set; }
-        private RoundQuestion CorrectAnswer { get; set; }
+        private List<Round> Questions { get; set; }
+        private int RandomIndex { get; set; }
 
-        private HttpInterface http = new HttpInterface("http://10.176.164.129:3000/");
-
-        public QuestionPage (int score, int gameId, List<int> usedQuestions)
+        public QuestionPage (int score, List<Round> questions)
 		{
 			InitializeComponent ();
 
             this.Score = score;
-            this.GameId = gameId;
-            this.UsedQuestions = new List<int>(usedQuestions);
-
-            GetQuestion().Wait();
-            GetAnswers().Wait();
-        }
-
-        private async Task GetQuestion()
-        {
-            var gameQuestions = await this.http.MakeGetRequest<List<GameQuestion>>("gamequestions");
-            List<Question> questions = new List<Question>();
-
-            foreach (var item in gameQuestions)
-            {
-                if (item.GameId == this.GameId)
-                {
-                    var question = await this.http.MakeGetRequest<Question>("question/" + item.QuestionId);
-                    questions.Add(question);
-                }
-            }
-
+            this.Questions = new List<Round>(questions);
             Random rng = new Random();
-
-            foreach (var index in this.UsedQuestions)
-            {
-                questions[index] = null;
-            }
-
-            questions.Remove(null);
-
-            int randomNumber = rng.Next(0, questions.Count - 1);
-
-            this.CurrentQuestion = questions[randomNumber];
-
-            this.UsedQuestions.Add(randomNumber);
-
-            DisplayQuestion();
-        }
-
-        private async Task GetAnswers()
-        {
-                var roundQuestions = await this.http.MakeGetRequest<List<RoundQuestion>>("roundquestions");
-
-                foreach (var item in roundQuestions)
-                {
-                    if (item.QuestionId == this.CurrentQuestion.QuestionId)
-                    {
-                        var answer = await this.http.MakeGetRequest<Answer>("answers/" + item.AnswerId);
-                        this.Answers.Add(answer);
-                        if (item.IsCorrectAnswer)
-                        {
-                            this.CorrectAnswer = item;
-                        }
-                    }
-                }
-
-                DisplayAnswers();
+            this.RandomIndex = rng.Next(0, this.Questions.Count - 1);
         }
 
         private void DisplayQuestion()
         {
-            this.question.Text = this.CurrentQuestion.Description;
+            this.question.Text = this.Questions[this.RandomIndex].Question.Description;
         }
 
         private void DisplayAnswers()
         {
-            this.answer1.Text = this.Answers[0].Description;
-            this.answer2.Text = this.Answers[1].Description;
-            this.answer3.Text = this.Answers[2].Description;
-            this.answer4.Text = this.Answers[3].Description;
+            this.answer1.Text = this.Questions[this.RandomIndex].Answers[0].Description;
+            this.answer2.Text = this.Questions[this.RandomIndex].Answers[1].Description;
+            this.answer3.Text = this.Questions[this.RandomIndex].Answers[2].Description;
+            this.answer4.Text = this.Questions[this.RandomIndex].Answers[3].Description;
         }
 
         private bool AnswerIsCorrect(string answer)
         {
-            for (int i = 0; i < this.Answers.Count; i++)
+            for (int i = 0; i < this.Questions[this.RandomIndex].Answers.Count; i++)
             {
-                if (this.Answers[i].Description.Equals(answer) && this.Answers[i].AnswerId == this.CorrectAnswer.AnswerId)
+                if (this.Questions[this.RandomIndex].Answers[i].Description.Equals(answer) && this.Questions[this.RandomIndex].Answers[i].AnswerId == this.Questions[0].GetCorrectAnswer().AnswerId)
                 {
                     return true;
                 }
@@ -116,7 +57,7 @@ namespace GameApp
             Button obj = (Button)sender;
             if (AnswerIsCorrect(obj.Text))
             {
-                if (this.CurrentQuestion.QuestionType.Equals("Text"))
+                if (this.Questions[0].Question.QuestionType.Equals("Text"))
                 {
                     this.Score += 100;
                 }
@@ -126,12 +67,14 @@ namespace GameApp
                 }
             }
 
-            if (this.UsedQuestions.Count > 10) {
+            this.Questions.RemoveAt(this.RandomIndex);
+
+            if (this.Questions.Count == 0) {
                 Navigation.PushAsync(new SlutPage(this.Score));
             }
             else
             {
-                Navigation.PushAsync(new ScoreBoard(this.Score, this.GameId, this.UsedQuestions));
+                Navigation.PushAsync(new ScoreBoard(this.Score, this.Questions));
             }
         } 
 	}

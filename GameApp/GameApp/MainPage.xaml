@@ -46,7 +46,7 @@
                 </Picker>
                 <Button x:Name="buttonStartSpil" Text="Start spil" Clicked="Button_Start_Spil" ></Button>
             </StackLayout>
-
+            <Button x:Name="selectGame" Text="Vælg Spil" Grid.Row="2" Clicked="SelectGame"></Button>
 
         </Grid>
 

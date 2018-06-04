@@ -28,6 +28,7 @@
       <DependentUpon>QuestionPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Round.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RoundQuestion.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ScoreBoard.xaml.cs">
       <DependentUpon>ScoreBoard.xaml</DependentUpon>

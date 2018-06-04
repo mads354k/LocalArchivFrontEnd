@@ -13,15 +13,13 @@ namespace GameApp
 	public partial class ScoreBoard : ContentPage
 	{
         private int Score { get; set; }
-        private int GameId { get; set; }
-        private List<int> UsedQuestions { get; set; }
+        private List<Round> Questions { get; set; }
 
-        public ScoreBoard (int score, int gameId, List<int> usedQuestions)
+        public ScoreBoard (int score, List<Round> questions)
 		{
 			InitializeComponent ();
             this.Score = score;
-            this.GameId = gameId;
-            this.UsedQuestions = usedQuestions;
+            this.Questions = questions;
 
             ShowScore();
 
@@ -33,12 +31,12 @@ namespace GameApp
             string scoreText = "Din Score: " + this.Score;
             this.scoreLabel.Text = scoreText;
 
-            this.rundeLabel.Text = "Næste Runde: " + (this.UsedQuestions.Count + 1);
+            this.rundeLabel.Text = "Næste Runde: " + (9 - this.Questions.Count);
         }
 
         private void ChangePage()
         {
-            Navigation.PushAsync(new QuestionPage(this.Score, this.GameId, this.UsedQuestions));
+            Navigation.PushAsync(new QuestionPage(this.Score, this.Questions));
         }
 	}
 }
