@@ -18,6 +18,7 @@ namespace GameApp
         public MainPage()
 		{
             BindingContext = this;
+            this.Questions = new List<Round>();
             this.ListOfGames = new ObservableCollection<Game>();
             InitializeComponent();
             this.buttonStartSpil.IsEnabled = false;
@@ -43,7 +44,7 @@ namespace GameApp
             {
                 if (item.GameId == this.GameId)
                 {
-                    var question = await http.MakeGetRequest<Question>("question/" + item.QuestionId);
+                    var question = await http.MakeGetRequest<Question>("questions/" + item.QuestionId);
                     questions.Add(question);
                 }
             }

@@ -24,6 +24,9 @@ namespace GameApp
             this.Questions = new List<Round>(questions);
             Random rng = new Random();
             this.RandomIndex = rng.Next(0, this.Questions.Count - 1);
+
+            DisplayQuestion();
+            DisplayAnswers();
         }
 
         private void DisplayQuestion()
@@ -56,8 +59,8 @@ namespace GameApp
         {
             Button obj = (Button)sender;
             if (AnswerIsCorrect(obj.Text))
-            {
-                if (this.Questions[0].Question.QuestionType.Equals("Text"))
+            {/*
+                if (this.Questions[this.RandomIndex].Question.QuestionType.Equals("Text"))
                 {
                     this.Score += 100;
                 }
@@ -65,6 +68,8 @@ namespace GameApp
                 {
                     this.Score += 150;
                 }
+                */
+                this.Score += 100;
             }
 
             this.Questions.RemoveAt(this.RandomIndex);
