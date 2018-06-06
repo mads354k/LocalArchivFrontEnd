@@ -13,7 +13,7 @@ namespace GameApp
         public ObservableCollection<Game> ListOfGames { get; set; }
         private int GameId { get; set; }
         private List<Round> Questions { get; set; }
-        private HttpInterface http = new HttpInterface("http://10.176.164.24:3000/");
+        private HttpInterface http = new HttpInterface("http://10.176.164.25:3000/");
 
         public MainPage()
 		{

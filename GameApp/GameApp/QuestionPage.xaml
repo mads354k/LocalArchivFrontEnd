@@ -25,7 +25,8 @@
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center" >
             <Label x:Name="question" Text="Hvor gammel er broager kirke?"></Label>
-            <Label x:Name="hint" Text=""></Label>
+            <Label x:Name="hint" Text="" FontSize="Medium"></Label>
+            <Label x:Name="timerBar" Text="" FontSize="Small" TextColor="Green"></Label>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="50*"></RowDefinition>

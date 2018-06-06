@@ -16,7 +16,8 @@ namespace GameApp
         private int Score { get; set; }
         private List<Round> Questions { get; set; }
         private int RandomIndex { get; set; }
-        private Timer timer = new Timer();
+        private int Progress { get; set; }
+        private bool EndGame { get; set; }
 
         public QuestionPage (int score, List<Round> questions)
 		{
@@ -26,16 +27,48 @@ namespace GameApp
             this.Questions = new List<Round>(questions);
             Random rng = new Random();
             this.RandomIndex = rng.Next(0, this.Questions.Count - 1);
-
-            timer.Elapsed += DisplayHint;
-            timer.Interval = 20000;
+            this.EndGame = false;
 
             DisplayQuestion();
             DisplayAnswers();
-            timer.Start();
+
+            TimerBarProgress();
         }
 
-        private void DisplayHint(object sender, EventArgs e)
+        private void TimerBarProgress()
+        {
+            // this.timerBar.Progress = 0;
+            this.Progress = 1;
+
+            Device.StartTimer(new TimeSpan(0, 0, 1), () => {
+                this.timerBar.Text = (30 - this.Progress)+"";
+
+                if (this.Progress == 20)
+                {
+                    DisplayHint();
+                    this.timerBar.TextColor = new Color(255,0,0);
+                }
+                else if (this.Progress == 30)
+                {
+                    this.Questions.RemoveAt(this.RandomIndex);
+
+                    if (this.Questions.Count == 0)
+                    {
+                        Navigation.PushAsync(new SlutPage(this.Score));
+                    }
+                    else
+                    {
+                        Navigation.PushAsync(new ScoreBoard(this.Score, this.Questions));
+                    }
+                    this.EndGame = true;
+                }
+                this.Progress += 1;
+
+                return !EndGame;
+            });
+        }
+
+        private void DisplayHint()
         {
             this.hint.Text = "Hint: " + this.Questions[this.RandomIndex].Question.Hint;
         }
@@ -92,6 +125,8 @@ namespace GameApp
             {
                 Navigation.PushAsync(new ScoreBoard(this.Score, this.Questions));
             }
+
+            this.EndGame = true;
         } 
 	}
 }
