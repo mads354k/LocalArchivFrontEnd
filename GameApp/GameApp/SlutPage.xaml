@@ -10,7 +10,7 @@
             <Style TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center"></Setter>
                 <Setter Property="VerticalOptions" Value="Center"></Setter>
-                <Setter Property="TextColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="Blue"></Setter>
                 <Setter Property="FontSize" Value="100"></Setter>
             </Style>
         </ResourceDictionary>

@@ -21,8 +21,8 @@
             <Style TargetType="Button">
                 <Setter Property="HorizontalOptions" Value="Center"></Setter>
                 <Setter Property="VerticalOptions" Value="Center"></Setter>
-                <Setter Property="TextColor" Value="White"></Setter>
-                <Setter Property="BackgroundColor" Value="Black"></Setter>
+                <Setter Property="TextColor" Value="Blue"></Setter>
+                <Setter Property="BackgroundColor" Value="Orange"></Setter>
                 <Setter Property="FontSize" Value="37"></Setter>
             </Style>
 
