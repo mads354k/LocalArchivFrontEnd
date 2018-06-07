@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,13 +13,13 @@ namespace GameApp
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ScoreBoard : ContentPage
 	{
-        private int Score { get; set; }
+        private List<Player> Players { get; set; }
         private List<Round> Questions { get; set; }
 
-        public ScoreBoard (int score, List<Round> questions)
+        public ScoreBoard (List<Player> players, List<Round> questions)
 		{
 			InitializeComponent ();
-            this.Score = score;
+            this.Players = players;
             this.Questions = questions;
 
             ShowScore();
@@ -28,15 +29,19 @@ namespace GameApp
 
         private void ShowScore()
         {
-            string scoreText = "Din Score: " + this.Score;
-            this.scoreLabel.Text = scoreText;
+            for (int i=0; i < this.Players.Count; i++)
+            {
+                Label l = new Label();
+                l.Text = "Spiller " + (i + 1) + ": " + this.Players[i].Score;
+                this.playerScores.Children.Add(l);
+            }
 
             this.rundeLabel.Text = "Næste Runde: " + (9 - this.Questions.Count);
         }
 
         private void ChangePage()
         {
-            Navigation.PushAsync(new QuestionPage(this.Score, this.Questions));
+            Navigation.PushAsync(new QuestionPage(this.Players, this.Questions));
         }
 	}
 }

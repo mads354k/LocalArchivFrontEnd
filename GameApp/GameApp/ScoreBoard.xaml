@@ -16,7 +16,9 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <Label x:Name="scoreLabel" Text="score"></Label>
+            <StackLayout x:Name="playerScores" HorizontalOptions="Center" VerticalOptions="Center">
+                
+            </StackLayout>
             <Label x:Name="rundeLabel" Text="runde"></Label>
         </StackLayout>
     </ContentPage.Content>

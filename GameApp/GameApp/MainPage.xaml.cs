@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace GameApp
         public ObservableCollection<Game> ListOfGames { get; set; }
         private int GameId { get; set; }
         private List<Round> Questions { get; set; }
-        private HttpInterface http = new HttpInterface("http://10.176.164.25:3000/");
+        private HttpInterface http = new HttpInterface("http://10.176.164.17:3000/");
 
         public MainPage()
 		{
@@ -90,8 +91,15 @@ namespace GameApp
         }
 
         private void Button_Start_Spil(object sender, EventArgs e)
-        { 
-            Navigation.PushAsync(new QuestionPage(0, this.Questions));
+        {
+            List<Player> players = new List<Player>();
+            for (int i = 0; i < this.stPlayers.Value; i++)
+            {
+                Player pl = new Player();
+                players.Add(pl);
+            }
+            players[0].ItsTurn = true;
+            Navigation.PushAsync(new QuestionPage(players, this.Questions));
         }
     }
 }

@@ -7,23 +7,24 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.Net.Http;
 using System.Timers;
+using GameApp.Model;
 
 namespace GameApp
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class QuestionPage : ContentPage
 	{
-        private int Score { get; set; }
+        private List<Player> Players { get; set; }
         private List<Round> Questions { get; set; }
         private int RandomIndex { get; set; }
         private int Progress { get; set; }
         private bool EndGame { get; set; }
 
-        public QuestionPage (int score, List<Round> questions)
+        public QuestionPage (List<Player> players, List<Round> questions)
 		{
 			InitializeComponent ();
 
-            this.Score = score;
+            this.Players = players;
             this.Questions = new List<Round>(questions);
             Random rng = new Random();
             this.RandomIndex = rng.Next(0, this.Questions.Count - 1);
@@ -50,15 +51,17 @@ namespace GameApp
                 }
                 else if (this.Progress == 30)
                 {
+                    SetTurnToNextPlayer();
+
                     this.Questions.RemoveAt(this.RandomIndex);
 
                     if (this.Questions.Count == 0)
                     {
-                        Navigation.PushAsync(new SlutPage(this.Score));
+                        Navigation.PushAsync(new SlutPage(this.Players));
                     }
                     else
                     {
-                        Navigation.PushAsync(new ScoreBoard(this.Score, this.Questions));
+                        Navigation.PushAsync(new ScoreBoard(this.Players, this.Questions));
                     }
                     this.EndGame = true;
                 }
@@ -103,30 +106,64 @@ namespace GameApp
         {
             Button obj = (Button)sender;
             if (AnswerIsCorrect(obj.Text))
-            {/*
-                if (this.Questions[this.RandomIndex].Question.QuestionType.Equals("Text"))
-                {
-                    this.Score += 100;
-                }
-                else
-                {
-                    this.Score += 150;
-                }
-                */
-                this.Score += 100;
+            {
+                GiveScoreToCurrentPlayer();
             }
+
+            SetTurnToNextPlayer();
 
             this.Questions.RemoveAt(this.RandomIndex);
 
             if (this.Questions.Count == 0) {
-                Navigation.PushAsync(new SlutPage(this.Score));
+                Navigation.PushAsync(new SlutPage(this.Players));
             }
             else
             {
-                Navigation.PushAsync(new ScoreBoard(this.Score, this.Questions));
+                Navigation.PushAsync(new ScoreBoard(this.Players, this.Questions));
             }
 
             this.EndGame = true;
         } 
-	}
+
+        private void SetTurnToNextPlayer()
+        {
+            for (int i = 0; i < this.Players.Count; i++)
+            {
+                if (this.Players[i].ItsTurn)
+                {
+                    if (this.Players.Count == i+1)
+                    {
+                        this.Players[0].ItsTurn = true;
+                        this.Players[i].ItsTurn = false;
+                    }
+                    else
+                    {
+                        this.Players[i + 1].ItsTurn = true;
+                        this.Players[i].ItsTurn = false;
+                    }
+                }
+            }
+        }
+
+        private void GiveScoreToCurrentPlayer()
+        {
+            foreach (var player in this.Players)
+            {
+                if (player.ItsTurn)
+                {
+                    /*
+                    if (this.Questions[this.RandomIndex].Question.QuestionType.Equals("Text"))
+                    {
+                        player.Score += 100;
+                    }
+                    else
+                    {
+                        player.Score += 150;
+                    }
+                    */
+                    player.Score += 100;
+                }
+            }
+        }
+    }
 }

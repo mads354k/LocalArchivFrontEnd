@@ -18,7 +18,9 @@
     <ContentPage.Content>
         <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
             <Label x:Name="endGame" Text="Spillet er slut"></Label>
-            <Label x:Name="endScore" Text="score"></Label>
+            <StackLayout x:Name="playersScores" HorizontalOptions="Center" VerticalOptions="Center">
+
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
