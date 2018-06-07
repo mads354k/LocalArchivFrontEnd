@@ -85,7 +85,7 @@ namespace GameApp
                 {
                     if (this.Players[i].ItsTurn)
                     {
-                        this.turn.Text = "Spiller " + i + " tur";
+                        this.turn.Text = "Spiller " + (i+1) + " tur";
                         break;
                     }
                 }
