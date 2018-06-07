@@ -85,9 +85,12 @@ namespace GameApp
 
         private void SelectGame(object sender, EventArgs e)
         {
-            this.GameId = ((Game)this.picker.SelectedItem).GameId;
+            if ((Game)this.picker.SelectedItem != null)
+            {
+                this.GameId = ((Game)this.picker.SelectedItem).GameId;
 
-            GetRounds();
+                GetRounds();
+            }
         }
 
         private void Button_Start_Spil(object sender, EventArgs e)
