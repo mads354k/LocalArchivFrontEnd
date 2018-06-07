@@ -131,7 +131,7 @@ namespace GameApp
             {
                 if (this.Players[i].ItsTurn)
                 {
-                    if (this.Players.Count == i+1)
+                    if (this.Players.Count-1 == i)
                     {
                         this.Players[0].ItsTurn = true;
                         this.Players[i].ItsTurn = false;
@@ -141,6 +141,7 @@ namespace GameApp
                         this.Players[i + 1].ItsTurn = true;
                         this.Players[i].ItsTurn = false;
                     }
+                    break;
                 }
             }
         }
