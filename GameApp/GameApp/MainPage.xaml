@@ -50,7 +50,7 @@
                 <StackLayout>
                     <Button x:Name="buttonStartSpil" Text="Start spil" Clicked="Button_Start_Spil" ></Button>
                     <Stepper x:Name="stPlayers" Minimum="1" Maximum="2"></Stepper>
-                    <Label BindingContext="{x:Referance stPlayers}" Text="{Binding Value}"></Label>
+                    <Label BindingContext="{x:Reference stPlayers}" Text="{Binding Value}"></Label>
                 </StackLayout>
 
             </StackLayout>
