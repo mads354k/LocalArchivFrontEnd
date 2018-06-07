@@ -79,12 +79,15 @@ namespace GameApp
         private void DisplayQuestion()
         {
             this.question.Text = this.Questions[this.RandomIndex].Question.Description;
-            for(int i = 0 ; i < this.Players.Count ; i++)
+            if (this.Players.Count > 1)
             {
-                if (this.Players[i].ItsTurn)
+                for (int i = 0; i < this.Players.Count; i++)
                 {
-                    this.turn.Text = "Spiller " + i + " tur";
-                    break;
+                    if (this.Players[i].ItsTurn)
+                    {
+                        this.turn.Text = "Spiller " + i + " tur";
+                        break;
+                    }
                 }
             }
         }
